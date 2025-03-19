@@ -19,8 +19,8 @@ import static javax.management.remote.JMXConnectorFactory.connect;
 
 public class ReservationDB {
     private static final String JDBC_URL = "jdbc:postgresql://localhost:5432/postgres";
-    private static final String JDBC_USER = "azar";
-    private static final String JDBC_PASSWORD = "azar";
+    private static final String JDBC_USER = "test";
+    private static final String JDBC_PASSWORD = "1234567890";
 
     public ReservationDB() {
         try {

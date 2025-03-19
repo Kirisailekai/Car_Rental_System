@@ -1,80 +1,62 @@
-link to the video: https://youtu.be/HCS84yN7IHQ
 # Car Rental System
 
 **Car Rental System - Your Journey, Your Way!**
 
 ## Description
+The Car Rental System is a JavaFX-based application designed to streamline the car rental process. Users can select pick-up and drop-off locations, choose rental dates, and provide payment details for a seamless experience.
 
-The Car Rental System is a JavaFX-based application designed to facilitate the process of renting cars. Users can easily select pick-up and drop-off locations, choose rental dates, and provide payment information for a seamless car rental experience.
-
-## Project Requirements List
-
-1. [ ]  Input fields for pick-up and drop-off cities.
-2. [ ]  Date pickers for selecting rental dates.
-3. [ ]  Credit card information input, including card number, cardholder name, and expiration date.
-4. [ ]  CVC input field for credit card verification.
-5. [ ]  Visual representation of credit card logos and security indicators.
-6. [ ]  Error handling and display for user input validation.
-7. [ ]  "Rent Now" button to initiate the rental process.
-8. [ ]  Responsive and user-friendly UI design.
-9. [ ]  User authentication and sign-in functionality.
-10. [ ]  Secure and encrypted storage of user data.
+## Project Requirements
+- [ ] Input fields for pick-up and drop-off cities.
+- [ ] Date pickers for selecting rental dates.
+- [ ] Credit card information input (card number, cardholder name, expiration date).
+- [ ] CVC input field for credit card verification.
+- [ ] Visual representation of credit card logos and security indicators.
+- [ ] Error handling and user input validation.
+- [ ] "Rent Now" button to initiate the rental process.
+- [ ] Responsive and user-friendly UI design.
+- [ ] User authentication and sign-in functionality.
+- [ ] Secure and encrypted storage of user data.
 
 ## Team Members
+- **Tilek Sakyev**
+- **Nur Islam Kubanychbekov**
 
-- Orozobekova Sezim
-- Azanov Argen
-- Malikov Adilet
-
-## Roles of Group Members
-
-- **Orozobekova Sezim:** Frontend development, UI/UX design,and user authentication.
-- **Azanov Argen:** Backend development, database integration,and error handling.
-- **Malikov Adilet:** Quality assurance, testing, and documentation.
+## Roles
+- **Tilek Sakyev:** Frontend & backend development, database integration, error handling, and testing.
+- **Nur Islam Kubanychbekov:** UI/UX design, user authentication, quality assurance, and documentation.
 
 ## Screenshots
-![Screenshot 1](Screenshots/screenshot1.png)
-*Login page*
-
-![Screenshot 2](Screenshots/screenshot2.png)
-*Main page*
+![Login Page](Screenshots/screenshot1.png)
+![Main Page](Screenshots/screenshot2.png)
 
 ## Commit History
 
-### Nov 22, 2023
+### February 25, 2025
+- **Tilek:** Created project.
+- **Nur Islam:** Created README.md.
+- **Tilek:** Added SignUp page.
+- **Tilek:** Merged remote-tracking branch 'origin/master'.
+- **Tilek:** Added Sign In and Sign Up pages.
 
-- **azarft:** Create project
-- **malikovadi:** Create README.md
-- **azarft:** Add SignUp page
-- **azarft:** Merge remote-tracking branch 'origin/master'
-- **azarft:** Add sign in and sign up pages
+### February 26, 2025
+- **Nur Islam:** Implemented page switching in Sign Up section.
+- **Nur Islam:** Adjusted logo positioning.
+- **Tilek:** Added Main Page and Filter.
+- **Tilek:** Fixed bugs.
 
-### Nov 27, 2023
+### March 1, 2025
+- **Tilek:** Added TableView for Main Page.
 
-- **malikovadi:** switch between pages in sign up section
-- **malikovadi:** logo location
-- **azarft:** Add Main Page and Filter
-- **azarft:** Fix bugs
+### March 6, 2025
+- **Tilek:** Enabled car selection from table.
 
-### Nov 30, 2023
+### March 11, 2025
+- **Nur Islam:** Improved Sign In and Sign Up functionality.
+- **Tilek:** Implemented admin page functions.
 
-- **azarft:** Add TableView for Mainpage
-
-### Dec 1, 2023
-
-- **azarft:** Select cars from table
-
-### Dec 3, 2023
-
-- **Your Name:** Sign in and Sign up
-- **azarft:** Add admin page functions
-
-### Dec 17, 2023
-
-- **azarft:** Finishing Project part I
+### March 18, 2025
+- **Tilek:** Finalized the project.
 
 ## Contributors
-
-- Orozobekova Sezim
-- Azanov Argen
-- Malikov Adilet
+- **Tilek Sakyev**
+- **Nur Islam Kubanychbekov**

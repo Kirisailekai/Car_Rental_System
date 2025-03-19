@@ -1,6 +1,5 @@
 package com.example.car_rental_system_final;
 
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

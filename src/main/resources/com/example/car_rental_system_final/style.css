@@ -1,0 +1,111 @@
+/* Input Fields Error Styling */
+.error-textfield, .error-datepicker, .error-passwordfield {
+    -fx-border-color: #e63946;
+    -fx-border-width: 2px;
+    -fx-background-radius: 5px;
+}
+
+/* Table Row Styling */
+.custom-table-view .table-row-cell:hover {
+    -fx-background-color: #ffe5b4;
+}
+
+.custom-table-view .table-row-cell:selected {
+    -fx-background-color: #f3722c;
+    -fx-text-fill: white;
+}
+
+/* Logout Button Styling */
+#logout {
+    -fx-background-color: #d90429;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-border-radius: 8px;
+    -fx-font-weight: bold;
+}
+
+#logout:hover {
+    -fx-background-color: #ef233c;
+}
+
+/* Table Scroll Bar Styling */
+.table-view .scroll-bar .thumb {
+    -fx-background-color: #f3722c;
+    -fx-background-radius: 5px;
+}
+
+.table-view .scroll-bar .increment-button,
+.table-view .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+}
+
+/* Slider Styling */
+.slider {
+    -fx-background-color: transparent;
+}
+
+.slider .track {
+    -fx-background-color: white;
+    -fx-border-color: #f3722c;
+}
+
+.slider .thumb {
+    -fx-background-color: #f3722c;
+    -fx-background-radius: 50%;
+    -fx-pref-width: 15px;
+    -fx-pref-height: 15px;
+}
+
+.slider .thumb:hover {
+    -fx-background-color: #d97808;
+}
+
+/* Button Styling */
+.button {
+    -fx-background-color: #f3722c;
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-background-color: #e85d04;
+}
+
+.button:pressed {
+    -fx-background-color: #d15e00;
+}
+
+/* ImageView Effects */
+.custom-image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0);
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+.custom-image-view:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+/* ListView Styling */
+#myListView {
+    -fx-border-color: #f3722c;
+    -fx-border-radius: 5px;
+}
+
+#myListView .list-cell {
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+}
+
+#myListView .list-cell:hover {
+    -fx-background-color: #ffb741;
+}
+
+#myListView .list-cell:selected {
+    -fx-text-fill: white;
+    -fx-background-color: #ffffff;
+}

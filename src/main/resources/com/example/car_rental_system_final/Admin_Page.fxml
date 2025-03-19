@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_rental_system_final.AdminPageController">
+    <children>
+        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f68809" height="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="900.0" />
+
+        <ImageView fx:id="Logo" fitHeight="60.0" fitWidth="110.0" layoutX="20.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
+
+        <Label fx:id="UserName" layoutX="650.0" layoutY="25.0" prefHeight="20.0" prefWidth="140.0" text="Admin" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold Italic" size="14.0" />
+            </font>
+        </Label>
+
+        <Button fx:id="Logout" layoutX="800.0" layoutY="20.0" mnemonicParsing="false" onAction="#onClickLogoutButton"
+                prefHeight="30.0" prefWidth="80.0" text="Logout" textFill="WHITE"
+                style="-fx-background-color: #d32f2f; -fx-font-weight: bold; -fx-border-radius: 10px; -fx-background-radius: 10px;" />
+
+        <TableView fx:id="tableView" layoutX="230.0" layoutY="100.0" prefHeight="460.0" prefWidth="400.0"
+                   style="-fx-border-color: #f68809; -fx-background-color: white; -fx-border-radius: 10px;">
+            <columns>
+                <TableColumn fx:id="brandColumn" text="Brand" prefWidth="130.0" />
+                <TableColumn fx:id="typeColumn" text="Type" prefWidth="130.0" />
+                <TableColumn fx:id="priceColumn" text="Price $" prefWidth="130.0" />
+            </columns>
+        </TableView>
+
+        <ImageView fx:id="CarImage" fitHeight="200.0" fitWidth="250.0" layoutX="650.0" layoutY="100.0" preserveRatio="true"
+                   style="-fx-border-color: #f68809; -fx-border-width: 2px; -fx-border-radius: 10px;" />
+
+        <Button fx:id="AddImage" layoutX="650.0" layoutY="320.0" onAction="#onClickAddImageButton"
+                prefHeight="30.0" prefWidth="120.0" text="Add Image" textFill="#f68809"
+                style="-fx-border-color: #f68809; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-background-color: white;" />
+
+        <Label fx:id="imgName" layoutX="780.0" layoutY="320.0" prefHeight="30.0" prefWidth="100.0" text="No Image" textFill="#f68809" />
+
+        <TextField fx:id="CarBrand" layoutX="700.0" layoutY="370.0" prefHeight="26.0" prefWidth="160.0" promptText="Brand" />
+        <TextField fx:id="CarType" layoutX="700.0" layoutY="405.0" prefHeight="26.0" prefWidth="160.0" promptText="Type" />
+        <TextField fx:id="CarColor" layoutX="700.0" layoutY="440.0" prefHeight="26.0" prefWidth="160.0" promptText="Color" />
+        <TextField fx:id="CarCapacity" layoutX="700.0" layoutY="475.0" prefHeight="26.0" prefWidth="160.0" promptText="Capacity" />
+        <TextField fx:id="CarPrice" layoutX="700.0" layoutY="510.0" prefHeight="26.0" prefWidth="160.0" promptText="Price $/day" />
+
+        <Button fx:id="Save" layoutX="700.0" layoutY="550.0" onAction="#onClickSaveButton"
+                prefHeight="30.0" prefWidth="80.0" text="Save" textFill="WHITE"
+                style="-fx-background-color: #4CAF50; -fx-font-weight: bold; -fx-border-radius: 10px; -fx-background-radius: 10px;" />
+
+        <Button fx:id="Delete" layoutX="800.0" layoutY="550.0" onAction="#onClickDeleteButton"
+                prefHeight="30.0" prefWidth="80.0" text="Delete" textFill="WHITE"
+                style="-fx-background-color: red; -fx-font-weight: bold; -fx-border-radius: 10px; -fx-background-radius: 10px;" />
+
+        <Button fx:id="Filter" layoutX="50.0" layoutY="550.0" onAction="#onClickFilterButton"
+                prefHeight="30.0" prefWidth="120.0" text="Filter" textFill="WHITE"
+                style="-fx-background-color: #2196F3; -fx-font-weight: bold; -fx-border-radius: 10px; -fx-background-radius: 10px;" />
+    </children>
+</AnchorPane>

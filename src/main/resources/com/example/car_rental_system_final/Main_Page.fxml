@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.layout.VBox?>
+<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_rental_system_final.MainPageController">
+   <children>
+      <!-- Верхняя панель -->
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f68809" height="69.0" strokeType="INSIDE" width="900.0" />
+      <ImageView fx:id="Logo" fitHeight="59.0" fitWidth="112.0" layoutX="29.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="UserName" layoutX="642.0" layoutY="26.0" prefWidth="147.0" text="Username" textFill="WHITE" style="-fx-font-size: 14; -fx-font-style: italic;" />
+      <Button fx:id="Logout" layoutX="795.0" layoutY="23.0" prefWidth="86.0" text="Logout" onAction="#onClickLogoutButton" style="-fx-font-weight: bold;" />
+
+      <!-- Фильтры -->
+      <VBox layoutX="40.0" layoutY="100.0" spacing="10">
+         <Label text="Filters" style="-fx-font-weight: bold;" />
+         <CheckBox fx:id="TypeSport" text="Sport" selected="true" onAction="#onClickFilterButton" />
+         <CheckBox fx:id="TypeSUV" text="SUV" selected="true" onAction="#onClickFilterButton" />
+         <CheckBox fx:id="TypeMPV" text="MPV" selected="true" onAction="#onClickFilterButton" />
+         <CheckBox fx:id="TypeSedan" text="Sedan" selected="true" onAction="#onClickFilterButton" />
+         <CheckBox fx:id="TypeCoupe" text="Coupe" selected="true" onAction="#onClickFilterButton" />
+         <CheckBox fx:id="TypeHatchback" text="Hatchback" selected="true" onAction="#onClickFilterButton" />
+
+         <Label text="Capacity" style="-fx-font-weight: bold;" />
+         <CheckBox fx:id="Capacity2Person" text="2 person" selected="true" onAction="#onClickFilterButton" />
+         <CheckBox fx:id="Capacity4Person" text="4 person" selected="true" onAction="#onClickFilterButton" />
+         <CheckBox fx:id="Capacity6Person" text="6 person" selected="true" onAction="#onClickFilterButton" />
+         <CheckBox fx:id="Capacity8PersonOrMore" text="8 or more" selected="true" onAction="#onClickFilterButton" />
+
+         <Label text="Max Price" />
+         <Slider fx:id="PriceSlider" onMouseClicked="#onClickFilterButton" prefWidth="177.0" />
+         <Label fx:id="Price" text="$400.0" />
+
+         <Button fx:id="Filter" text="Apply Filters" onAction="#onClickFilterButton" style="-fx-background-color: #f68809; -fx-text-fill: white;" />
+      </VBox>
+
+      <!-- Таблица с машинами -->
+      <TableView fx:id="tableView" layoutX="250.0" layoutY="100.0" prefHeight="450.0" prefWidth="350.0">
+         <columns>
+            <TableColumn fx:id="brandColumn" text="Brand" prefWidth="120" />
+            <TableColumn fx:id="typeColumn" text="Type" prefWidth="100" />
+            <TableColumn fx:id="priceColumn" text="Price $" prefWidth="120" />
+         </columns>
+      </TableView>
+
+      <!-- Детали автомобиля -->
+      <ImageView fx:id="CarImage" fitHeight="180.0" fitWidth="280.0" layoutX="620.0" layoutY="100.0" preserveRatio="true" />
+      <Line endX="135.0" layoutX="740.0" layoutY="290.0" startX="-130.0" stroke="#f68809" strokeWidth="3.0" />
+
+      <VBox layoutX="620.0" layoutY="310.0" spacing="10">
+         <Label text="Brand:" />
+         <Label fx:id="CarBrand" text="Label" />
+         <Label text="Type:" />
+         <Label fx:id="CarType" text="Label" />
+         <Label text="Capacity:" />
+         <Label fx:id="CarCapacity" text="Label" />
+         <Label text="Color:" />
+         <Label fx:id="CarColor" text="Label" />
+         <Label text="Gasoline:" />
+         <Label fx:id="CarVolume" text="Label" />
+         <Label fx:id="CarPrice" text="$0.0" style="-fx-font-weight: bold; -fx-text-fill: green;" />
+      </VBox>
+
+      <!-- История аренды -->
+      <Label layoutX="620.0" layoutY="450.0" text="Rental History" style="-fx-background-color: #f68809; -fx-text-fill: white; -fx-font-weight: bold;" />
+      <ListView fx:id="reservationListView" layoutX="620.0" layoutY="470.0" prefHeight="100.0" prefWidth="260.0" />
+      <Label fx:id="historyReservation" layoutX="620.0" layoutY="580.0" text="This car hasn't been rented by you before." style="-fx-text-fill: #c19504;" />
+
+      <!-- Кнопка аренды -->
+      <Button fx:id="Rent" layoutX="760.0" layoutY="550.0" text="Rent Now" onAction="#onClickRentButton" style="-fx-background-color: #f68809; -fx-text-fill: white; -fx-font-weight: bold;" />
+   </children>
+</AnchorPane>

@@ -1,76 +1,225 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<?import javafx.scene.layout.VBox?>
 <AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_rental_system_final.MainPageController">
    <children>
-      <!-- Верхняя панель -->
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f68809" height="69.0" strokeType="INSIDE" width="900.0" />
-      <ImageView fx:id="Logo" fitHeight="59.0" fitWidth="112.0" layoutX="29.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="UserName" layoutX="642.0" layoutY="26.0" prefWidth="147.0" text="Username" textFill="WHITE" style="-fx-font-size: 14; -fx-font-style: italic;" />
-      <Button fx:id="Logout" layoutX="795.0" layoutY="23.0" prefWidth="86.0" text="Logout" onAction="#onClickLogoutButton" style="-fx-font-weight: bold;" />
-
-      <!-- Фильтры -->
-      <VBox layoutX="40.0" layoutY="100.0" spacing="10">
-         <Label text="Filters" style="-fx-font-weight: bold;" />
-         <CheckBox fx:id="TypeSport" text="Sport" selected="true" onAction="#onClickFilterButton" />
-         <CheckBox fx:id="TypeSUV" text="SUV" selected="true" onAction="#onClickFilterButton" />
-         <CheckBox fx:id="TypeMPV" text="MPV" selected="true" onAction="#onClickFilterButton" />
-         <CheckBox fx:id="TypeSedan" text="Sedan" selected="true" onAction="#onClickFilterButton" />
-         <CheckBox fx:id="TypeCoupe" text="Coupe" selected="true" onAction="#onClickFilterButton" />
-         <CheckBox fx:id="TypeHatchback" text="Hatchback" selected="true" onAction="#onClickFilterButton" />
-
-         <Label text="Capacity" style="-fx-font-weight: bold;" />
-         <CheckBox fx:id="Capacity2Person" text="2 person" selected="true" onAction="#onClickFilterButton" />
-         <CheckBox fx:id="Capacity4Person" text="4 person" selected="true" onAction="#onClickFilterButton" />
-         <CheckBox fx:id="Capacity6Person" text="6 person" selected="true" onAction="#onClickFilterButton" />
-         <CheckBox fx:id="Capacity8PersonOrMore" text="8 or more" selected="true" onAction="#onClickFilterButton" />
-
-         <Label text="Max Price" />
-         <Slider fx:id="PriceSlider" onMouseClicked="#onClickFilterButton" prefWidth="177.0" />
-         <Label fx:id="Price" text="$400.0" />
-
-         <Button fx:id="Filter" text="Apply Filters" onAction="#onClickFilterButton" style="-fx-background-color: #f68809; -fx-text-fill: white;" />
-      </VBox>
-
-      <!-- Таблица с машинами -->
-      <TableView fx:id="tableView" layoutX="250.0" layoutY="100.0" prefHeight="450.0" prefWidth="350.0">
+      <Button fx:id="Filter" layoutX="41.0" layoutY="533.0" mnemonicParsing="false" onAction="#onClickFilterButton" stylesheets="@style.css" text="Filter" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Text fill="#7b7b7b" layoutX="40.0" layoutY="112.0" strokeMiterLimit="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" wrappingWidth="49.423828125" />
+      <Text fill="#7b7b7b" layoutX="40.0" layoutY="318.0" strokeMiterLimit="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacity" wrappingWidth="49.423828125" />
+      <CheckBox fx:id="TypeSport" alignment="TOP_LEFT" graphicTextGap="5.0" layoutX="40.0" layoutY="126.0" mnemonicParsing="false" onAction="#onClickFilterButton" selected="true" text="Sport">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="0.0" specularExponent="40.0" surfaceScale="0.95">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.8736842274665833" green="0.5822404026985168" blue="0.24916179478168488" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></CheckBox>
+      <CheckBox fx:id="TypeSUV" alignment="TOP_LEFT" graphicTextGap="5.0" layoutX="40.0" layoutY="155.0" mnemonicParsing="false" onAction="#onClickFilterButton" selected="true" text="SUV">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="0.0" specularExponent="40.0" surfaceScale="0.95">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.8736842274665833" green="0.5822404026985168" blue="0.24916179478168488" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></CheckBox>
+      <CheckBox fx:id="TypeMPV" alignment="TOP_LEFT" graphicTextGap="5.0" layoutX="40.0" layoutY="182.0" mnemonicParsing="false" onAction="#onClickFilterButton" selected="true" text="MPV">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="0.0" specularExponent="40.0" surfaceScale="0.95">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.8736842274665833" green="0.5822404026985168" blue="0.24916179478168488" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></CheckBox>
+      <CheckBox fx:id="TypeSedan" alignment="TOP_LEFT" graphicTextGap="5.0" layoutX="40.0" layoutY="209.0" mnemonicParsing="false" onAction="#onClickFilterButton" selected="true" text="Sedan">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="0.0" specularExponent="40.0" surfaceScale="0.95">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.8736842274665833" green="0.5822404026985168" blue="0.24916179478168488" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></CheckBox>
+      <CheckBox fx:id="TypeCoupe" alignment="TOP_LEFT" graphicTextGap="5.0" layoutX="40.0" layoutY="238.0" mnemonicParsing="false" onAction="#onClickFilterButton" selected="true" text="Coupe">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="0.0" specularExponent="40.0" surfaceScale="0.95">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.8736842274665833" green="0.5822404026985168" blue="0.24916179478168488" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></CheckBox>
+      <CheckBox fx:id="TypeHatchback" alignment="TOP_LEFT" graphicTextGap="5.0" layoutX="40.0" layoutY="267.0" mnemonicParsing="false" onAction="#onClickFilterButton" selected="true" text="Hatchback">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="0.0" specularExponent="40.0" surfaceScale="0.95">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.8736842274665833" green="0.5822404026985168" blue="0.24916179478168488" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></CheckBox>
+      <CheckBox fx:id="Capacity2Person" alignment="TOP_LEFT" graphicTextGap="5.0" layoutX="40.0" layoutY="333.0" mnemonicParsing="false" onAction="#onClickFilterButton" selected="true" text="2 person">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="0.0" specularExponent="40.0" surfaceScale="0.95">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.8736842274665833" green="0.5822404026985168" blue="0.24916179478168488" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></CheckBox>
+      <CheckBox fx:id="Capacity4Person" alignment="TOP_LEFT" graphicTextGap="5.0" layoutX="40.0" layoutY="361.0" mnemonicParsing="false" onAction="#onClickFilterButton" selected="true" text="4 person">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="0.0" specularExponent="40.0" surfaceScale="0.95">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.8736842274665833" green="0.5822404026985168" blue="0.24916179478168488" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></CheckBox>
+      <CheckBox fx:id="Capacity6Person" alignment="TOP_LEFT" graphicTextGap="5.0" layoutX="40.0" layoutY="388.0" mnemonicParsing="false" onAction="#onClickFilterButton" selected="true" text="6 person">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="0.0" specularExponent="40.0" surfaceScale="0.95">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.8736842274665833" green="0.5822404026985168" blue="0.24916179478168488" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></CheckBox>
+      <CheckBox fx:id="Capacity8PersonOrMore" alignment="TOP_LEFT" graphicTextGap="5.0" layoutX="40.0" layoutY="416.0" mnemonicParsing="false" onAction="#onClickFilterButton" selected="true" text="8 or More">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="0.0" specularExponent="40.0" surfaceScale="0.95">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.8736842274665833" green="0.5822404026985168" blue="0.24916179478168488" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></CheckBox>
+      <Slider fx:id="PriceSlider" layoutX="40.0" layoutY="476.0" onMouseClicked="#onClickFilterButton" prefHeight="14.0" prefWidth="177.0" stylesheets="@style.css" value="100.0" />
+      <Text fill="#7b7b7b" layoutX="43.0" layoutY="468.0" strokeMiterLimit="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" wrappingWidth="49.423828125" />
+      <Text layoutX="46.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max. " />
+      <Label fx:id="Price" layoutX="76.0" layoutY="502.0" prefHeight="18.0" prefWidth="45.0" text="\$400.0" />
+      <TableView fx:id="tableView" layoutX="234.0" layoutY="81.0" onKeyPressed="#onSelectCarKey" onKeyReleased="#onSelectCarKey" onMouseClicked="#onSelectCarMouse" onMouseEntered="#onSelectCarMouse" prefHeight="486.0" prefWidth="358.0" style="-fx-table-cell-border-color: #f68809; -fx-table-header-border-color: #f68809; -fx-table-header-color: white;" styleClass="custom-table-view" stylesheets="@style.css">
          <columns>
-            <TableColumn fx:id="brandColumn" text="Brand" prefWidth="120" />
-            <TableColumn fx:id="typeColumn" text="Type" prefWidth="100" />
-            <TableColumn fx:id="priceColumn" text="Price $" prefWidth="120" />
+            <TableColumn id="1234" fx:id="brandColumn" prefWidth="132.0" text="Brand" />
+            <TableColumn id="1234" fx:id="typeColumn" prefWidth="104.79998779296875" text="Type" />
+            <TableColumn id="1234" fx:id="priceColumn" prefWidth="119.20004272460938" text="Price $" />
          </columns>
       </TableView>
-
-      <!-- Детали автомобиля -->
-      <ImageView fx:id="CarImage" fitHeight="180.0" fitWidth="280.0" layoutX="620.0" layoutY="100.0" preserveRatio="true" />
-      <Line endX="135.0" layoutX="740.0" layoutY="290.0" startX="-130.0" stroke="#f68809" strokeWidth="3.0" />
-
-      <VBox layoutX="620.0" layoutY="310.0" spacing="10">
-         <Label text="Brand:" />
-         <Label fx:id="CarBrand" text="Label" />
-         <Label text="Type:" />
-         <Label fx:id="CarType" text="Label" />
-         <Label text="Capacity:" />
-         <Label fx:id="CarCapacity" text="Label" />
-         <Label text="Color:" />
-         <Label fx:id="CarColor" text="Label" />
-         <Label text="Gasoline:" />
-         <Label fx:id="CarVolume" text="Label" />
-         <Label fx:id="CarPrice" text="$0.0" style="-fx-font-weight: bold; -fx-text-fill: green;" />
-      </VBox>
-
-      <!-- История аренды -->
-      <Label layoutX="620.0" layoutY="450.0" text="Rental History" style="-fx-background-color: #f68809; -fx-text-fill: white; -fx-font-weight: bold;" />
-      <ListView fx:id="reservationListView" layoutX="620.0" layoutY="470.0" prefHeight="100.0" prefWidth="260.0" />
-      <Label fx:id="historyReservation" layoutX="620.0" layoutY="580.0" text="This car hasn't been rented by you before." style="-fx-text-fill: #c19504;" />
-
-      <!-- Кнопка аренды -->
-      <Button fx:id="Rent" layoutX="760.0" layoutY="550.0" text="Rent Now" onAction="#onClickRentButton" style="-fx-background-color: #f68809; -fx-text-fill: white; -fx-font-weight: bold;" />
+      <ImageView fx:id="CarImage" fitHeight="188.0" fitWidth="279.0" layoutX="607.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" />
+      <Line endX="135.39996337890625" layoutX="739.0" layoutY="277.0" startX="-130.20001220703125" stroke="#f68809" strokeWidth="3.0" />
+      <Text layoutX="608.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; " text="Brand" />
+      <Text layoutX="609.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Type car" />
+      <Text layoutX="759.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Color" />
+      <Text layoutX="759.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Capacity" />
+      <Label fx:id="CarBrand" layoutX="675.0" layoutY="328.0" prefHeight="18.0" prefWidth="70.0" text="Label" />
+      <Label fx:id="CaType" layoutX="676.0" layoutY="368.0" prefHeight="18.0" prefWidth="69.0" text="Label" />
+      <Label fx:id="CarCapacity" layoutX="821.0" layoutY="365.0" prefHeight="18.0" prefWidth="75.0" text="Label" />
+      <Label fx:id="CarColor" layoutX="821.0" layoutY="328.0" prefHeight="18.0" prefWidth="75.0" text="Label" />
+      <Text layoutX="810.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" />
+      <Text layoutX="810.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" />
+      <Label fx:id="CarPrice" layoutX="619.0" layoutY="531.0" prefHeight="33.0" prefWidth="112.0" style="-fx-font-weight: bold;" text="Label" textFill="#00942f">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="Rent" layoutX="763.0" layoutY="534.0" mnemonicParsing="false" onAction="#onClickRentButton" prefHeight="26.0" prefWidth="112.0" style="-fx-background-color: #f68809; -fx-font-weight: bold;" text="Rent Now" textFill="WHITE" />
+      <Text layoutX="760.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Gasoline" />
+      <Label fx:id="CarVolume" layoutX="827.0" layoutY="403.0" prefHeight="18.0" prefWidth="69.0" text="Label" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f68809" height="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="900.0" />
+      <Label fx:id="UserName" layoutX="642.0" layoutY="26.0" prefHeight="18.0" prefWidth="147.0" text="Label" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="Logo" fitHeight="59.0" fitWidth="112.0" layoutX="29.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+      <Button id="logout" fx:id="Logout" layoutX="795.0" layoutY="23.0" mnemonicParsing="false" onAction="#onClickLogoutButton" prefHeight="14.0" prefWidth="86.0" style="-fx-font-weight: bold;" stylesheets="@style.css" text="Logout" />
+      <ListView id="myListView" fx:id="reservationListView" layoutX="607.0" layoutY="431.0" prefHeight="96.0" prefWidth="269.0" style="-fx-border-color: #c98600;" stylesheets="@style.css" />
+      <Label fx:id="historyReservation" layoutX="634.0" layoutY="472.0" prefHeight="18.0" prefWidth="242.0" text="This car hasn't been rented by you before." textFill="#c19504">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></Label>
+      <Label alignment="TOP_CENTER" layoutX="607.0" layoutY="413.0" prefHeight="18.0" prefWidth="70.0" style="-fx-background-color: #f68809; -fx-font-weight: BOLD;" text="History" textFill="WHITE" />
    </children>
 </AnchorPane>

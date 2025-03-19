@@ -25,10 +25,6 @@ The Car Rental System is a JavaFX-based application designed to streamline the c
 - **Tilek Sakyev:** Frontend & backend development, database integration, error handling, and testing.
 - **Nur Islam Kubanychbekov:** UI/UX design, user authentication, quality assurance, and documentation.
 
-## Screenshots
-![Login Page](Screenshots/screenshot1.png)
-![Main Page](Screenshots/screenshot2.png)
-
 ## Commit History
 
 ### February 25, 2025
@@ -53,9 +49,6 @@ The Car Rental System is a JavaFX-based application designed to streamline the c
 ### March 11, 2025
 - **Nur Islam:** Improved Sign In and Sign Up functionality.
 - **Tilek:** Implemented admin page functions.
-
-### March 18, 2025
-- **Tilek:** Finalized the project.
 
 ## Contributors
 - **Tilek Sakyev**

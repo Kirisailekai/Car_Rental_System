@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_rental_system_final.Sign_up_Controller">
-
+   
    <children>
       <AnchorPane fx:id="signUp1" layoutX="4.0" layoutY="40.0" prefHeight="478.0" prefWidth="527.0" visible="false">
          <children>

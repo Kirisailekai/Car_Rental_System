@@ -11,12 +11,16 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Modality;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,6 +36,7 @@ import javafx.util.Duration;
 public class AdminPageController {
     private Stage primaryStage;
 
+    // Set the primary stage
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }

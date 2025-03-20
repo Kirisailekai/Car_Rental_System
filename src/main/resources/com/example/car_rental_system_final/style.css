@@ -98,8 +98,8 @@ error-passwordfield {
     -fx-scale-y: 1.1; /* Increase the scale on the Y-axis */
 }
 
--fx-shape: "M 0 0 h 10 l -5 7 l -5 -7 Z"; /* Triangle shape */
--fx-background-insets: 0; /* Remove button padding */
+    -fx-shape: "M 0 0 h 10 l -5 7 l -5 -7 Z"; /* Triangle shape */
+    -fx-background-insets: 0; /* Remove button padding */
 }
 /* Assuming your ListView has the ID "myListView" */
 #myListView {

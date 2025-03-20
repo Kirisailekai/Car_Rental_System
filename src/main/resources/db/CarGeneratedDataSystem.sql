@@ -198,106 +198,48 @@ insert into car (type, price_per_day, color, brand, volume, capacity) values ('S
 insert into car (type, price_per_day, color, brand, volume, capacity) values ('Hatchback', 275, 'white', 'Ford', 70, 4);
 insert into car (type, price_per_day, color, brand, volume, capacity) values ('Coupe', 212, 'blue', 'Bugatti', 86, 6);
 insert into car (type, price_per_day, color, brand, volume, capacity) values ('SUV', 213, 'white', 'Ford', 90, 4);
-insert into license (number, category) values ('UJD0762743', 'A1');
-insert into license (number, category) values ('DCW3732134', 'T');
-insert into license (number, category) values ('XDD7257389', 'T');
-insert into license (number, category) values ('EJL3490054', 'A');
-insert into license (number, category) values ('JQN9732077', 'T');
-insert into license (number, category) values ('FPD9925022', 'D');
-insert into license (number, category) values ('XDX4387350', 'D1');
-insert into license (number, category) values ('SGD4500615', 'D1');
-insert into license (number, category) values ('UND4684580', 'T');
-insert into license (number, category) values ('NED3925435', 'T');
-insert into license (number, category) values ('TMD6734730', 'B1');
-insert into license (number, category) values ('PGX7271943', 'CE');
-insert into license (number, category) values ('RJM5377093', 'D1');
-insert into license (number, category) values ('LWL5486316', 'C1');
-insert into license (number, category) values ('UTD2084470', 'DE');
-insert into license (number, category) values ('WNO3518101', 'A1');
-insert into license (number, category) values ('VBH4536771', 'T');
-insert into license (number, category) values ('AAG9587401', 'B');
-insert into license (number, category) values ('SMR6852510', 'C');
-insert into license (number, category) values ('NWM4355526', 'A1');
-insert into license (number, category) values ('OPX8326886', 'CE');
-insert into license (number, category) values ('JGV8489000', 'C1E');
-insert into license (number, category) values ('VBK0361879', 'C1');
-insert into license (number, category) values ('CHU2770643', 'BE');
-insert into license (number, category) values ('IBG9127660', 'BE');
-insert into license (number, category) values ('KIY7313280', 'D1');
-insert into license (number, category) values ('AVU1629772', 'BE');
-insert into license (number, category) values ('XOV2121486', 'C1E');
-insert into license (number, category) values ('DBO0315381', 'D1E');
-insert into license (number, category) values ('GND6307934', 'T');
-insert into license (number, category) values ('FSG0614931', 'D1');
-insert into license (number, category) values ('SAA4135832', 'DE');
-insert into license (number, category) values ('YNQ7485417', 'D1');
-insert into license (number, category) values ('PAB8443892', 'C1E');
-insert into license (number, category) values ('XPG9079183', 'D1E');
-insert into license (number, category) values ('UUT7539350', 'B');
-insert into license (number, category) values ('BCP2784392', 'CE');
-insert into license (number, category) values ('HHW0079928', 'C1');
-insert into license (number, category) values ('CYY2474950', 'B');
-insert into license (number, category) values ('ONJ7608995', 'DE');
-insert into license (number, category) values ('OYB4142605', 'A');
-insert into license (number, category) values ('XHY7088700', 'B');
-insert into license (number, category) values ('YIV5817874', 'C');
-insert into license (number, category) values ('QBP2141232', 'DE');
-insert into license (number, category) values ('IBZ0654513', 'D1E');
-insert into license (number, category) values ('NYM1197690', 'BE');
-insert into license (number, category) values ('AOS8602906', 'A');
-insert into license (number, category) values ('GKJ4313231', 'D1E');
-insert into license (number, category) values ('EWL7235010', 'A1');
-insert into license (number, category) values ('PIM4623068', 'C');
-insert into license (number, category) values ('TKV1664109', 'D1E');
-insert into license (number, category) values ('CJW6993305', 'B');
-insert into license (number, category) values ('QCK9671566', 'BE');
-insert into license (number, category) values ('DQG7658578', 'C');
-insert into license (number, category) values ('VRL8388304', 'C1');
-insert into license (number, category) values ('PNI7002766', 'B');
-insert into license (number, category) values ('ROW9467045', 'A');
-insert into license (number, category) values ('YUY9211972', 'BE');
-insert into license (number, category) values ('ASC8195132', 'DE');
-insert into license (number, category) values ('TCF3851591', 'B');
-insert into license (number, category) values ('TVA2913499', 'D1E');
-insert into license (number, category) values ('DRV7055081', 'C1');
-insert into license (number, category) values ('SDU7858278', 'A');
-insert into license (number, category) values ('BNN8178922', 'A');
-insert into license (number, category) values ('VUR9850446', 'B1');
-insert into license (number, category) values ('SEC4190305', 'D1');
-insert into license (number, category) values ('LOB2645132', 'C1');
-insert into license (number, category) values ('VZN4927309', 'B1');
-insert into license (number, category) values ('GTN8752382', 'T');
-insert into license (number, category) values ('VRP5279167', 'C');
-insert into license (number, category) values ('IQF9233003', 'D1E');
-insert into license (number, category) values ('IAX9600349', 'T');
-insert into license (number, category) values ('SLC4326757', 'T');
-insert into license (number, category) values ('SMH8568877', 'D1');
-insert into license (number, category) values ('URF2344553', 'T');
-insert into license (number, category) values ('YVY8482765', 'BE');
-insert into license (number, category) values ('FDS7133340', 'BE');
-insert into license (number, category) values ('HVF6988145', 'BE');
-insert into license (number, category) values ('LGN3295871', 'B1');
-insert into license (number, category) values ('SZD0574381', 'CE');
-insert into license (number, category) values ('QNT3064077', 'A');
-insert into license (number, category) values ('SFL5459911', 'B1');
-insert into license (number, category) values ('EZO0203189', 'C');
-insert into license (number, category) values ('QVF3272737', 'T');
-insert into license (number, category) values ('CZF6444336', 'BE');
-insert into license (number, category) values ('TIT3474013', 'C1');
-insert into license (number, category) values ('RVE5262111', 'BE');
-insert into license (number, category) values ('CDG7555571', 'B1');
-insert into license (number, category) values ('FDN8527811', 'C');
-insert into license (number, category) values ('OCW0934266', 'C1E');
-insert into license (number, category) values ('OPS2503966', 'C1E');
-insert into license (number, category) values ('DMK6232086', 'DE');
-insert into license (number, category) values ('VNH3840355', 'A1');
-insert into license (number, category) values ('SKW2652027', 'A1');
-insert into license (number, category) values ('VVX5039969', 'A1');
-insert into license (number, category) values ('WNF6506156', 'A');
-insert into license (number, category) values ('AMK9317079', 'DE');
-insert into license (number, category) values ('UQW9943736', 'CE');
-insert into license (number, category) values ('ZUA8503451', 'BE');
-insert into license (number, category) values ('VVT3931776', 'C1E');
+INSERT INTO license (user_id, number, category) VALUES (9, 'UND4684580', 'T');
+INSERT INTO license (user_id, number, category) VALUES (10, 'NED3925435', 'T');
+INSERT INTO license (user_id, number, category) VALUES (11, 'TMD6734730', 'B1');
+INSERT INTO license (user_id, number, category) VALUES (12, 'PGX7271943', 'CE');
+INSERT INTO license (user_id, number, category) VALUES (13, 'RJM5377093', 'D1');
+INSERT INTO license (user_id, number, category) VALUES (14, 'LWL5486316', 'C1');
+INSERT INTO license (user_id, number, category) VALUES (15, 'UTD2084470', 'DE');
+INSERT INTO license (user_id, number, category) VALUES (16, 'WNO3518101', 'A1');
+INSERT INTO license (user_id, number, category) VALUES (17, 'VBH4536771', 'T');
+INSERT INTO license (user_id, number, category) VALUES (18, 'AAG9587401', 'B');
+INSERT INTO license (user_id, number, category) VALUES (19, 'SMR6852510', 'C');
+INSERT INTO license (user_id, number, category) VALUES (20, 'NWM4355526', 'A1');
+INSERT INTO license (user_id, number, category) VALUES (21, 'OPX8326886', 'CE');
+INSERT INTO license (user_id, number, category) VALUES (22, 'JGV8489000', 'C1E');
+INSERT INTO license (user_id, number, category) VALUES (23, 'VBK0361879', 'C1');
+INSERT INTO license (user_id, number, category) VALUES (24, 'CHU2770643', 'BE');
+INSERT INTO license (user_id, number, category) VALUES (25, 'IBG9127660', 'BE');
+INSERT INTO license (user_id, number, category) VALUES (26, 'KIY7313280', 'D1');
+INSERT INTO license (user_id, number, category) VALUES (27, 'AVU1629772', 'BE');
+INSERT INTO license (user_id, number, category) VALUES (28, 'XOV2121486', 'C1E');
+INSERT INTO license (user_id, number, category) VALUES (29, 'DBO0315381', 'D1E');
+INSERT INTO license (user_id, number, category) VALUES (30, 'GND6307934', 'T');
+INSERT INTO license (user_id, number, category) VALUES (31, 'FSG0614931', 'D1');
+INSERT INTO license (user_id, number, category) VALUES (32, 'SAA4135832', 'DE');
+INSERT INTO license (user_id, number, category) VALUES (33, 'YNQ7485417', 'D1');
+INSERT INTO license (user_id, number, category) VALUES (34, 'PAB8443892', 'C1E');
+INSERT INTO license (user_id, number, category) VALUES (35, 'XPG9079183', 'D1E');
+INSERT INTO license (user_id, number, category) VALUES (36, 'UUT7539350', 'B');
+INSERT INTO license (user_id, number, category) VALUES (37, 'BCP2784392', 'CE');
+INSERT INTO license (user_id, number, category) VALUES (38, 'HHW0079928', 'C1');
+INSERT INTO license (user_id, number, category) VALUES (39, 'CYY2474950', 'B');
+INSERT INTO license (user_id, number, category) VALUES (40, 'ONJ7608995', 'DE');
+INSERT INTO license (user_id, number, category) VALUES (41, 'OYB4142605', 'A');
+INSERT INTO license (user_id, number, category) VALUES (42, 'XHY7088700', 'B');
+INSERT INTO license (user_id, number, category) VALUES (43, 'YIV5817874', 'C');
+INSERT INTO license (user_id, number, category) VALUES (44, 'QBP2141232', 'DE');
+INSERT INTO license (user_id, number, category) VALUES (45, 'IBZ0654513', 'D1E');
+INSERT INTO license (user_id, number, category) VALUES (46, 'NYM1197690', 'BE');
+INSERT INTO license (user_id, number, category) VALUES (47, 'AOS8602906', 'A');
+INSERT INTO license (user_id, number, category) VALUES (48, 'GKJ4313231', 'D1E');
+INSERT INTO license (user_id, number, category) VALUES (49, 'EWL7235010', 'A1');
+INSERT INTO license (user_id, number, category) VALUES (50, 'PIM4623068', 'C');
 insert into passport (passportnumber) values ('53163512271297');
 insert into passport (passportnumber) values ('72210987147794');
 insert into passport (passportnumber) values ('43301323520715');
@@ -598,30 +540,29 @@ insert into payment (card_number, card_holder, expiration_date, cvc) values ('25
 insert into payment (card_number, card_holder, expiration_date, cvc) values ('4220 7492 5004 5759',(SELECT CONCAT(name, ' ', surname) FROM "user" u where u.id = 98), '2021-07-12', '238');
 insert into payment (card_number, card_holder, expiration_date, cvc) values ('2548 6559 3439 8206',(SELECT CONCAT(name, ' ', surname) FROM "user" u where u.id = 99), '2022-10-31', '127');
 insert into payment (card_number, card_holder, expiration_date, cvc) values ('4220 7492 5004 5759',(SELECT CONCAT(name, ' ', surname) FROM "user" u where u.id = 100), '2021-07-12', '231');
-INSERT INTO reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time)
-VALUES
-    (1, 1, '2023-11-17', '2023-05-11', '3 Burning Wood Street', '76438 Heath Center', 271, 44, '2023-10-15'),
-    (2, 2, '2023-11-27', '2023-11-27', '38 Gateway Center', '03 Becker Center', 365, 75, '2023-04-29'),
-    (3, 3, '2023-11-12', '2023-10-30', '2 Corry Point', '647 Anderson Place', 244, 79, '2023-03-13'),
-    (4, 4, '2023-11-20', '2023-12-27', '84 Dixon Point', '0 Browning Hill', 228, 106, '2023-09-20'),
-    (5, 5, '2023-11-24', '2023-11-12', '608 Jenifer Point', '4 Riverside Avenue', 346, 25, '2023-09-11'),
-    (6, 6, '2023-11-21', '2023-09-28', '51 Erie Avenue', '57 Reindahl Junction', 233, 192, '2023-05-18'),
-    (7, 7, '2023-11-19', '2023-02-24', '05 Forest Hill', '73 Weeping Birch Crossing', 381, 129, '2023-07-14'),
-    (8, 8, '2023-11-29', '2023-09-03', '6 East Crossing', '5981 Gerald Court', 339, 95, '2023-08-12'),
-    (9, 9, '2023-12-08', '2023-05-01', '15 Hintze Way', '9 Hansons Parkway', 374, 129, '2023-07-24'),
-    (10, 10, '2023-12-05', '2023-02-11', '5300 Elmside Circle', '4955 Starling Street', 316, 33, '2023-08-23'),
-    (11, 11, '2023-11-30', '2023-02-02', '84 Calypso Road', '53 Clarendon Avenue', 349, 80, '2023-08-01'),
-    (12, 12, '2023-11-30', '2023-12-30', '92 Quincy Hill', '4 Ramsey Point', 399, 89, '2023-08-09'),
-    (13, 13, '2023-11-18', '2023-07-05', '54 Carpenter Avenue', '8364 Logan Junction', 342, 72, '2023-03-18'),
-    (14, 14, '2023-11-23', '2023-04-25', '6 Golf Trail', '7668 Petterle Pass', 308, 134, '2023-02-04'),
-    (15, 15, '2023-12-07', '2023-03-17', '466 Havey Trail', '8 Forest Circle', 209, 68, '2023-04-08'),
-    (16, 16, '2023-11-20', '2023-10-17', '81253 Rockefeller Place', '72733 Fremont Plaza', 289, 150, '2023-12-12'),
-    (17, 17, '2023-11-16', '2023-11-29', '0 Cascade Trail', '86 Maryland Avenue', 382, 190, '2023-05-13'),
-    (18, 18, '2023-12-02', '2023-08-27', '4862 John Wall Drive', '783 Badeau Circle', 204, 172, '2023-01-13'),
-    (19, 19, '2023-12-10', '2023-06-11', '26242 Pearson Hill', '835 Mcbride Crossing', 284, 47, '2023-06-29'),
-    (20, 20, '2023-12-11', '2022-12-27', '581 Fremont Terrace', '5079 Reindahl Trail', 273, 183, '2023-05-05');
-insert into administrator (email, "name", surname, "position", phone, "password") values ('tilek.sakyev@alatoo.edu.kg', 'Tilek', 'Sakyev', 'Director', '700913892', '1234567890');
-insert into administrator (email, "name", surname, "position", phone, "password") values ('nurislam.kubanychbekov@alatoo.edu.kg', 'Nur Islam', 'Kubanychbekov', 'Director', '777301626', 'qwerty');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('1', '1', '11/17/2023', '5/11/2023', '3 Burning Wood Street', '76438 Heath Center', 271, 44, '10/15/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('2', '2', '11/27/2023', '11/27/2023', '38 Gateway Center', '03 Becker Center', 365, 75, '4/29/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('3', '3', '11/12/2023', '10/30/2023', '2 Corry Point', '647 Anderson Place', 244, 79, '3/13/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('4', '4', '11/20/2023', '12/27/2023', '84 Dixon Point', '0 Browning Hill', 228, 106, '9/20/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('5', '5', '11/24/2023', '11/12/2023', '608 Jenifer Point', '4 Riverside Avenue', 346, 25, '9/11/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('6', '6', '11/21/2023', '9/28/2023', '51 Erie Avenue', '57 Reindahl Junction', 233, 192, '5/18/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('7', '7', '11/19/2023', '2/24/2023', '05 Forest Hill', '73 Weeping Birch Crossing', 381, 129, '7/14/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('8', '8', '11/29/2023', '9/3/2023', '6 East Crossing', '5981 Gerald Court', 339, 95, '8/12/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('9', '9', '12/8/2023', '5/1/2023', '15 Hintze Way', '9 Hansons Parkway', 374, 129, '7/24/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('10', '10', '12/5/2023', '2/11/2023', '5300 Elmside Circle', '4955 Starling Street', 316, 33, '8/23/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('11', '11', '11/30/2023', '2/2/2023', '84 Calypso Road', '53 Clarendon Avenue', 349, 80, '8/1/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('12', '12', '11/30/2023', '12/30/2023', '92 Quincy Hill', '4 Ramsey Point', 399, 89, '8/9/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('13', '13', '11/18/2023', '7/5/2023', '54 Carpenter Avenue', '8364 Logan Junction', 342, 72, '3/18/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('14', '14', '11/23/2023', '4/25/2023', '6 Golf Trail', '7668 Petterle Pass', 308, 134, '2/4/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('15', '15', '12/7/2023', '3/17/2023', '466 Havey Trail', '8 Forest Circle', 209, 68, '4/8/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('16', '16', '11/20/2023', '10/17/2023', '81253 Rockefeller Place', '72733 Fremont Plaza', 289, 150, '12/12/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('17', '17', '11/16/2023', '11/29/2023', '0 Cascade Trail', '86 Maryland Avenue', 382, 190, '5/13/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('18', '18', '12/2/2023', '8/27/2023', '4862 John Wall Drive', '783 Badeau Circle', 204, 172, '1/13/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('19', '19', '12/10/2023', '6/11/2023', '26242 Pearson Hill', '835 Mcbride Crossing', 284, 47, '6/29/2023');
+insert into reservation (user_id, car_id, starting_date, ending_date, pickup_location, return_location, total_cost, arrival_fine, arrival_time) values ('20', '20', '12/11/2023', '12/27/2022', '581 Fremont Terrace', '5079 Reindahl Trail', 273, 183, '5/5/2023');
+insert into administrator (email, "name", surname, "position", phone, "password") values ('nurislam.kubanychbekov@alatoo.edu.kg', 'Nur Islam', 'Kubanychbekov', 'Director', '700913892', '1234');
+insert into administrator (email, "name", surname, "position", phone, "password") values ('test@alatoo.edu.kg', 'test', 'test', 'Director', '777301626', 'qwerty');
+insert into administrator (email, "name", surname, "position", phone, "password") values ('tilek.sakyev@alatoo.edu.kg', 'Tilek', 'Sakyev', 'Director', '999697069', '1234567890');
 
 
 

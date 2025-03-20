@@ -181,11 +181,11 @@
       <Text layoutX="46.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max. " />
       <Label fx:id="Price" layoutX="76.0" layoutY="502.0" prefHeight="18.0" prefWidth="45.0" text="\$400.0" />
       <TableView fx:id="tableView" layoutX="234.0" layoutY="81.0" onKeyPressed="#onSelectCarKey" onKeyReleased="#onSelectCarKey" onMouseClicked="#onSelectCarMouse" onMouseEntered="#onSelectCarMouse" prefHeight="486.0" prefWidth="358.0" style="-fx-table-cell-border-color: #f68809; -fx-table-header-border-color: #f68809; -fx-table-header-color: white;" styleClass="custom-table-view" stylesheets="@style.css">
-         <columns>
-            <TableColumn id="1234" fx:id="brandColumn" prefWidth="132.0" text="Brand" />
-            <TableColumn id="1234" fx:id="typeColumn" prefWidth="104.79998779296875" text="Type" />
+        <columns>
+          <TableColumn id="1234" fx:id="brandColumn" prefWidth="132.0" text="Brand" />
+          <TableColumn id="1234" fx:id="typeColumn" prefWidth="104.79998779296875" text="Type" />
             <TableColumn id="1234" fx:id="priceColumn" prefWidth="119.20004272460938" text="Price $" />
-         </columns>
+        </columns>
       </TableView>
       <ImageView fx:id="CarImage" fitHeight="188.0" fitWidth="279.0" layoutX="607.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" />
       <Line endX="135.39996337890625" layoutX="739.0" layoutY="277.0" startX="-130.20001220703125" stroke="#f68809" strokeWidth="3.0" />

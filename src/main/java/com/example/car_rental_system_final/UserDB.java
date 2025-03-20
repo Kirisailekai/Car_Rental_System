@@ -89,7 +89,7 @@ public class UserDB {
     }
 
     public static boolean isUserExist(User user) {
-        String sql = "SELECT * FROM \"user\" WHERE (email = ? OR phone = ?) AND password = ?";
+        String sql = "SELECT * FROM app_user WHERE (email = ? OR phone = ?) AND password = ?";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, user.getUser_email());

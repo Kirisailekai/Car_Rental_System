@@ -13,6 +13,7 @@ public class UserDB {
     }
 
     public static int createUser(User user) {
+        //String checkUserSQL = "SELECT COUNT(*) FROM `user` WHERE email = ? OR phone = ?";
         String insertUserSQL = "INSERT INTO `user` (name, surname, email, phone, address, password, birthday) VALUES (?, ?, ?, ?, ?, ?, ?)";
         int userId = -1;
 

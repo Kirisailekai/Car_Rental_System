@@ -1,10 +1,10 @@
 .error-textfield {
-    -fx-border-color: red;
+    -fx-border-color: #003cff;
     -fx-border-width: 1.5px;
 }
 
 .error-datepicker {
-    -fx-border-color: red;
+    -fx-border-color: #003cff;
     -fx-border-width: 1.5px;
 }
 
@@ -18,7 +18,7 @@ error-passwordfield {
 }
 
 .custom-table-view .table-row-cell:selected {
-    -fx-background-color: #f68809;
+    -fx-background-color: #003cff;
 }
 
 #logout {
@@ -33,7 +33,7 @@ error-passwordfield {
 }
 
 .table-view .scroll-bar .thumb {
-    -fx-background-color: #f68809;
+    -fx-background-color: #003cff;
     -fx-background-insets: 0, 0;
     -fx-background-radius: 0;
     -fx-padding: 0;
@@ -54,36 +54,36 @@ error-passwordfield {
 /* Style the track of the Slider */
 .slider .track {
     -fx-background-color: white; /* Set the color for the track */
-    -fx-border-color: #f68809;
+    -fx-border-color: #003cff;
 
 }
 
 /* Style the thumb of the Slider */
 .slider .thumb {
-    -fx-background-color: #f68809; /* Set the color for the thumb */
+    -fx-background-color: #003cff; /* Set the color for the thumb */
     -fx-background-radius: 25; /* Set the thumb border radius to 0 for a squared appearance */
 }
 
 .slider .thumb:hover {
-    -fx-background-color: #d97808; /* Set the color for the thumb */
+    -fx-background-color: #003cff; /* Set the color for the thumb */
     -fx-background-radius: 25; /* Set the thumb border radius to 0 for a squared appearance */
 }
 
 
 .button {
-    -fx-background-color: #f68809; /* Set the background color */
+    -fx-background-color: #003cff; /* Set the background color */
     -fx-text-fill: white; /* Set the text color */
     -fx-background-radius: 5; /* Set the button border radius for a rounded appearance */
 }
 
 /* Hover effect for the Button */
 .button:hover {
-    -fx-background-color: #e57200; /* Set a different color when hovered */
+    -fx-background-color: #003cff; /* Set a different color when hovered */
 }
 
 /* Pressed effect for the Button */
 .button:pressed {
-    -fx-background-color: #d15e00; /* Set a different color when pressed */
+    -fx-background-color: #003cff; /* Set a different color when pressed */
 }
 
 /* Apply the custom style to the ImageView */
@@ -103,7 +103,7 @@ error-passwordfield {
 }
 /* Assuming your ListView has the ID "myListView" */
 #myListView {
-    -fx-border-color: #f68809;
+    -fx-border-color: #003cff;
 }
 
 /* Style for the items inside the ListView */
@@ -113,11 +113,11 @@ error-passwordfield {
 
 /* Style for the item in the ListView on hover */
 #myListView .list-cell:hover {
-    -fx-background-color: #ffb741; /* Set a lighter version of #f68809 on hover */
+    -fx-background-color: #003cff; /* Set a lighter version of #f68809 on hover */
 }
 
 /* Style for the selected item in the ListView */
 #myListView .list-cell:selected {
     -fx-text-fill: white;
-    -fx-background-color: #f68809; /* Set background color to #f68809 when selected */
+    -fx-background-color: #003cff; /* Set background color to #f68809 when selected */
 }

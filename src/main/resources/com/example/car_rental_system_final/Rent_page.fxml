@@ -62,7 +62,7 @@
          </font>
       </Text>
       <Circle fill="#eb001b" layoutX="460.0" layoutY="261.0" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="#f59a1bbf" layoutX="469.0" layoutY="261.0" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fill="#0940f6" layoutX="469.0" layoutY="261.0" radius="7.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Button fx:id="RentNow" layoutX="222.0" layoutY="389.0" mnemonicParsing="false" onAction="#onClickRentNowButton" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: green;" text="Rent Now" textFill="WHITE" />
       <Label fx:id="Error" alignment="CENTER" layoutX="156.0" layoutY="362.0" prefHeight="18.0" prefWidth="292.0" textFill="#eb001b" />
    </children>

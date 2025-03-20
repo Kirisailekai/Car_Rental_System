@@ -180,7 +180,7 @@
       <Text fill="#7b7b7b" layoutX="43.0" layoutY="468.0" strokeMiterLimit="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" wrappingWidth="49.423828125" />
       <Text layoutX="46.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max. " />
       <Label fx:id="Price" layoutX="76.0" layoutY="502.0" prefHeight="18.0" prefWidth="45.0" text="\$400.0" />
-      <TableView fx:id="tableView" layoutX="234.0" layoutY="81.0" onKeyPressed="#onSelectCarKey" onKeyReleased="#onSelectCarKey" onMouseClicked="#onSelectCarMouse" onMouseEntered="#onSelectCarMouse" prefHeight="486.0" prefWidth="358.0" style="-fx-table-cell-border-color: #f68809; -fx-table-header-border-color: #f68809; -fx-table-header-color: white;" styleClass="custom-table-view" stylesheets="@style.css">
+      <TableView fx:id="tableView" layoutX="234.0" layoutY="81.0" onKeyPressed="#onSelectCarKey" onKeyReleased="#onSelectCarKey" onMouseClicked="#onSelectCarMouse" onMouseEntered="#onSelectCarMouse" prefHeight="486.0" prefWidth="358.0" style="-fx-table-cell-border-color: #0940f6; -fx-table-header-border-color: #0940f6; -fx-table-header-color: white;" styleClass="custom-table-view" stylesheets="@style.css">
         <columns>
           <TableColumn id="1234" fx:id="brandColumn" prefWidth="132.0" text="Brand" />
           <TableColumn id="1234" fx:id="typeColumn" prefWidth="104.79998779296875" text="Type" />
@@ -188,7 +188,8 @@
         </columns>
       </TableView>
       <ImageView fx:id="CarImage" fitHeight="188.0" fitWidth="279.0" layoutX="607.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" />
-      <Line endX="135.39996337890625" layoutX="739.0" layoutY="277.0" startX="-130.20001220703125" stroke="#f68809" strokeWidth="3.0" />
+      <Line endX="135.39996337890625" layoutX="739.0" layoutY="277.0" startX="-130.20001220703125" stroke="#0940f6"
+            strokeWidth="3.0" />
       <Text layoutX="608.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; " text="Brand" />
       <Text layoutX="609.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Type car" />
       <Text layoutX="759.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Color" />
@@ -204,10 +205,10 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="Rent" layoutX="763.0" layoutY="534.0" mnemonicParsing="false" onAction="#onClickRentButton" prefHeight="26.0" prefWidth="112.0" style="-fx-background-color: #f68809; -fx-font-weight: bold;" text="Rent Now" textFill="WHITE" />
+      <Button fx:id="Rent" layoutX="763.0" layoutY="534.0" mnemonicParsing="false" onAction="#onClickRentButton" prefHeight="26.0" prefWidth="112.0" style="-fx-background-color: #0940f6; -fx-font-weight: bold;" text="Rent Now" textFill="WHITE" />
       <Text layoutX="760.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Gasoline" />
       <Label fx:id="CarVolume" layoutX="827.0" layoutY="403.0" prefHeight="18.0" prefWidth="69.0" text="Label" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f68809" height="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="900.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0940f6" height="69.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="900.0" />
       <Label fx:id="UserName" layoutX="642.0" layoutY="26.0" prefHeight="18.0" prefWidth="147.0" text="Label" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="14.0" />
@@ -215,11 +216,11 @@
       </Label>
       <ImageView fx:id="Logo" fitHeight="59.0" fitWidth="112.0" layoutX="29.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
       <Button id="logout" fx:id="Logout" layoutX="795.0" layoutY="23.0" mnemonicParsing="false" onAction="#onClickLogoutButton" prefHeight="14.0" prefWidth="86.0" style="-fx-font-weight: bold;" stylesheets="@style.css" text="Logout" />
-      <ListView id="myListView" fx:id="reservationListView" layoutX="607.0" layoutY="431.0" prefHeight="96.0" prefWidth="269.0" style="-fx-border-color: #c98600;" stylesheets="@style.css" />
-      <Label fx:id="historyReservation" layoutX="634.0" layoutY="472.0" prefHeight="18.0" prefWidth="242.0" text="This car hasn't been rented by you before." textFill="#c19504">
+      <ListView id="myListView" fx:id="reservationListView" layoutX="607.0" layoutY="431.0" prefHeight="96.0" prefWidth="269.0" style="-fx-border-color: #0940f6;" stylesheets="@style.css" />
+      <Label fx:id="historyReservation" layoutX="634.0" layoutY="472.0" prefHeight="18.0" prefWidth="242.0" text="This car hasn't been rented by you before." textFill="#0940f6">
          <font>
             <Font name="System Italic" size="12.0" />
          </font></Label>
-      <Label alignment="TOP_CENTER" layoutX="607.0" layoutY="413.0" prefHeight="18.0" prefWidth="70.0" style="-fx-background-color: #f68809; -fx-font-weight: BOLD;" text="History" textFill="WHITE" />
+      <Label alignment="TOP_CENTER" layoutX="607.0" layoutY="413.0" prefHeight="18.0" prefWidth="70.0" style="-fx-background-color: #0940f6; -fx-font-weight: BOLD;" text="History" textFill="WHITE" />
    </children>
 </AnchorPane>

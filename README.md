@@ -1,21 +1,20 @@
 # Car Rental System
 
-**Car Rental System - Your Journey, Your Way!**
+**Car Rental System
 
 ## Description
-The Car Rental System is a JavaFX-based application designed to streamline the car rental process. Users can select pick-up and drop-off locations, choose rental dates, and provide payment details for a seamless experience.
+The Car Rental System is a web-based platform designed to provide a seamless and efficient car rental experience. Users can browse a variety of cars, select their preferred type based on capacity, price, and color, and easily book a rental online.
 
-## Project Requirements
-- [ ] Input fields for pick-up and drop-off cities.
-- [ ] Date pickers for selecting rental dates.
-- [ ] Credit card information input (card number, cardholder name, expiration date).
-- [ ] CVC input field for credit card verification.
-- [ ] Visual representation of credit card logos and security indicators.
-- [ ] Error handling and user input validation.
-- [ ] "Rent Now" button to initiate the rental process.
-- [ ] Responsive and user-friendly UI design.
-- [ ] User authentication and sign-in functionality.
-- [ ] Secure and encrypted storage of user data.
+## Project Requirements List
+- Vehicle Selection: Choose from various car types (sedan, SUV, sports, etc.).
+- Filter Options: Sort by capacity, price, and color for a tailored selection.
+- Rental Duration: Select rental start and end dates.
+- Payment Integration: Secure credit card processing.
+- User Authentication: Sign up and log in functionality.
+- Admin Panel: Manage cars, bookings, and users.
+- Error Handling: Validate user input and provide clear messages.
+- Responsive Design: Optimized for mobile and desktop use.
+- Security Features: Encrypted user data storage and secure payments.
 
 ## Team Members
 - **Tilek Sakyev**
@@ -24,6 +23,10 @@ The Car Rental System is a JavaFX-based application designed to streamline the c
 ## Roles
 - **Tilek Sakyev:** Frontend & backend development, database integration, error handling, and testing.
 - **Nur Islam Kubanychbekov:** UI/UX design, user authentication, quality assurance, and documentation.
+
+## Screenshots
+![Login Page](Screenshots/screenshot1.png)
+![Main Page](Screenshots/screenshot2.png)
 
 ## Commit History
 
@@ -53,3 +56,4 @@ The Car Rental System is a JavaFX-based application designed to streamline the c
 ## Contributors
 - **Tilek Sakyev**
 - **Nur Islam Kubanychbekov**
+

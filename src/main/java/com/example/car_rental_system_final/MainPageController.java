@@ -1,5 +1,6 @@
 package com.example.car_rental_system_final;
 
+import com.example.car_rental_system_final.ReservationDB;
 import javafx.animation.PauseTransition;
 import javafx.animation.ScaleTransition;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -299,7 +300,9 @@ public class MainPageController {
 
             if (ReservationDB.hasReservation()){
                 historyReservation.setVisible(false);
-                Reservation[] reservations = ReservationDB.getReservationsByUserAndCar();
+                List<Reservation> reservationsList = ReservationDB.getReservationsByUserAndCar();
+                Reservation[] reservations = reservationsList.toArray(new Reservation[0]); // Преобразуем List в массив
+
                 ObservableList<Reservation> observableReservations = FXCollections.observableArrayList(reservations);
                 reservationListView.setItems(observableReservations);
             }

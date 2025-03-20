@@ -21,7 +21,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Modality;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -36,7 +35,6 @@ import javafx.util.Duration;
 public class AdminPageController {
     private Stage primaryStage;
 
-    // Set the primary stage
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
@@ -45,28 +43,20 @@ public class AdminPageController {
     private Button Logout;
     @FXML
     private Label UserName;
-
     @FXML
     private ImageView Logo;
-
     @FXML
     private Slider PriceSlider;
-
     @FXML
     private Label Price;
-
     @FXML
     private TableView<Car> tableView;
-
     @FXML
     private TableColumn<Car, String> brandColumn;
-
     @FXML
     private TableColumn<Car, String> typeColumn;
-
     @FXML
     private TableColumn<Car, Double> priceColumn;
-
     @FXML
     private TextField CaType;
     @FXML
@@ -81,7 +71,6 @@ public class AdminPageController {
     private TextField CarVolume;
     @FXML
     private TextField CarPrice;
-
     @FXML
     private CheckBox TypeSport;
     @FXML
@@ -94,7 +83,6 @@ public class AdminPageController {
     private CheckBox TypeCoupe;
     @FXML
     private CheckBox TypeHatchback;
-
     @FXML
     private CheckBox Capacity2Person;
     @FXML
@@ -103,7 +91,6 @@ public class AdminPageController {
     private CheckBox Capacity6Person;
     @FXML
     private CheckBox Capacity8PersonOrMore;
-
     @FXML
     private Button Delete;
     @FXML
@@ -112,12 +99,8 @@ public class AdminPageController {
     private Button AddImage;
     @FXML
     private Label imgName;
-
-
-
     @FXML
     private Button Filter;
-
     private CarDB carDB;
     private String filterText = "";
 
@@ -131,7 +114,6 @@ public class AdminPageController {
         PriceSlider.setMin(100);
         PriceSlider.setMax(400);
 
-        // Set the initial value to the maximum
         PriceSlider.setValue(PriceSlider.getMax());
 
         PriceSlider.valueProperty().addListener(new ChangeListener<Number>() {
@@ -148,21 +130,17 @@ public class AdminPageController {
         carDB = new CarDB();
         fetchCarsFromDatabase();
 
-        // Automatically select the first item in the tableView
         tableView.getSelectionModel().selectFirst();
-        // Show information for the selected car
         selectCarInTable();
     }
     @FXML
     public void onClickLogoutButton(){
         navigateToSignIn();
     }
-
     @FXML
     public void onClickFilterButton() {
         filterCars();
     }
-
     @FXML
     private void onSelectCarMouse(MouseEvent event) {
         selectCarInTable();
@@ -173,7 +151,6 @@ public class AdminPageController {
         Car selectedCar = tableView.getSelectionModel().getSelectedItem();
 
         if (selectedCar == null) {
-            // No car selected, allow the user to import an image
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Choose Image File");
             fileChooser.getExtensionFilters().addAll(
@@ -183,29 +160,23 @@ public class AdminPageController {
             File selectedFile = fileChooser.showOpenDialog(primaryStage);
 
             if (selectedFile != null) {
-                // Copy the selected file to the resources/images directory
                 String imageName = selectedFile.getName();
                 String destinationPath = "src/main/resources/images/" + imageName;
 
                 try {
                     Files.copy(selectedFile.toPath(), Paths.get(destinationPath), StandardCopyOption.REPLACE_EXISTING);
 
-                    // Update the image name label
                     imgName.setText(imageName);
 
-                    // Display the new image in the ImageView
                     Image carImage = new Image(selectedFile.toURI().toString());
                     CarImage.setImage(carImage);
 
-                    // Inform the user that the image has been added
                     System.out.println("Image added successfully.");
                 } catch (IOException e) {
                     e.printStackTrace();
-                    // Handle the exception appropriately (e.g., show an error message)
                 }
             }
         } else {
-            // A car is selected, do nothing
             System.out.println("Cannot add image when a car is selected.");
         }
     }
@@ -222,21 +193,14 @@ public class AdminPageController {
 
     @FXML
     private void onClickSaveButton() {
-        // Get the currently selected car
         Car selectedCar = tableView.getSelectionModel().getSelectedItem();
 
         if (selectedCar != null) {
-            // Update the selected car with the values from text fields
             updateCarValues(selectedCar);
-
-            // Update the database with the modified car
             updateCarInDatabase(selectedCar);
 
-            // Refresh the table view to reflect the changes
             fetchCarsFromDatabase();
         } else {
-            // Handle the case where no item is selected
-            // For example, show an alert or display a message to the user
             if (    !CaType.getText().isEmpty() &&
                     !CarBrand.getText().isEmpty() &&
                     !CarColor.getText().isEmpty() &&
@@ -265,27 +229,20 @@ public class AdminPageController {
 
     @FXML
     private void onClickDeleteButton() {
-        // Get the currently selected car
         Car selectedCar = tableView.getSelectionModel().getSelectedItem();
 
         if (selectedCar != null) {
-            // Delete the selected car from the database
             deleteCarFromDatabase(selectedCar);
 
-            // Refresh the table view to reflect the changes
             fetchCarsFromDatabase();
 
-            // Clear the text fields and image after deletion
             clearCarDetails();
         } else {
-            // Handle the case where no item is selected
-            // For example, show an alert or display a message to the user
             clearCarDetails();
         }
     }
 
     private void clearCarDetails() {
-        // Clear all text fields and the image
         CaType.clear();
         CarBrand.clear();
         CarColor.clear();
@@ -308,7 +265,7 @@ public class AdminPageController {
 
     private void filterCars(){
         int check = 0;
-        filterText = "where 1=1 "; // Start with a true condition
+        filterText = "where 1=1 ";
 
         if (TypeCoupe.isSelected() || TypeHatchback.isSelected() || TypeMPV.isSelected() || TypeSedan.isSelected() || TypeSport.isSelected() || TypeSUV.isSelected()) {
             filterText += "and type in (";
@@ -343,7 +300,6 @@ public class AdminPageController {
                 check++;
             }
 
-            // Remove the trailing comma if there are selected types
             if (check > 0) {
                 filterText = filterText.substring(0, filterText.length() - 1);
             }
@@ -375,7 +331,6 @@ public class AdminPageController {
                 check++;
             }
 
-            // Remove the trailing comma if there are selected capacities
             if (check > 0) {
                 filterText = filterText.substring(0, filterText.length() - 1);
             }
@@ -386,22 +341,19 @@ public class AdminPageController {
         double maxPrice = PriceSlider.getValue();
         filterText += "and price_per_day <= " + maxPrice + " ";
 
-        // Fetch filtered cars from the database and populate the TableView
         fetchFilteredCarsFromDatabase();
     }
+
     private Car currentlySelectedCar;
 
     private void selectCarInTable() {
         Car selectedCar = tableView.getSelectionModel().getSelectedItem();
 
         if (selectedCar != null) {
-            // Check if the selected car is the same as the currently selected one
             if (selectedCar.equals(currentlySelectedCar)) {
-                // Clear the selection
                 tableView.getSelectionModel().clearSelection();
                 currentlySelectedCar = null;
 
-                // Clear all text fields and the image
                 CaType.clear();
                 CarBrand.clear();
                 CarColor.clear();
@@ -411,7 +363,6 @@ public class AdminPageController {
                 imgName.setText("");
                 CarImage.setImage(null);
             } else {
-                // Set the currentlySelectedCar to the selected car
                 currentlySelectedCar = selectedCar;
 
                 CaType.setText(selectedCar.getType());
@@ -422,17 +373,14 @@ public class AdminPageController {
                 CarPrice.setText(String.valueOf(selectedCar.getPricePerDay()));
                 imgName.setText(selectedCar.getImagePath());
 
-                // Construct the file path to the image
                 String imagePath = "src/main/resources/images/" + selectedCar.getImagePath();
 
-                // Load image directly from file
                 File file = new File(imagePath);
                 Image carImage = new Image(file.toURI().toString());
                 CarImage.setImage(carImage);
             }
             addZoomOnHover(CarImage);
         } else {
-            // Clear all text fields and the image when no item is selected
             CaType.clear();
             CarBrand.clear();
             CarColor.clear();
@@ -446,7 +394,6 @@ public class AdminPageController {
     }
 
     private void updateCarValues(Car car) {
-        // Update the car object with values from text fields
         car.setType(CaType.getText());
         car.setBrand(CarBrand.getText());
         car.setColor(CarColor.getText());
@@ -457,74 +404,56 @@ public class AdminPageController {
     }
 
     private void updateCarInDatabase(Car car) {
-        // Update the car in the database
         try {
             carDB.updateCar(car);
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle the exception appropriately (e.g., show an error message)
         }
     }
 
     private void deleteCarFromDatabase(Car car) {
-        // Get the image name from the car
         String imageName = car.getImagePath();
-
-        // Delete the car from the database
         try {
             carDB.deleteCar(car.getId());
-
-            // Delete the associated image file
             deleteImageFile(imageName);
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle the exception appropriately (e.g., show an error message)
         }
     }
 
     private void deleteImageFile(String imageName) {
-        // Construct the path to the image file
         String imagePath = "src/main/resources/images/" + imageName;
 
-        // Create a File object representing the image file
         File imageFile = new File(imagePath);
 
-        // Check if the file exists before attempting to delete it
         if (imageFile.exists()) {
-            // Attempt to delete the image file
             boolean deleted = imageFile.delete();
 
-            // Check if the deletion was successful
             if (deleted) {
                 System.out.println("Image file deleted: " + imagePath);
             } else {
-                // Handle the case where the file deletion fails
                 System.out.println("Failed to delete image file: " + imagePath);
             }
         } else {
-            // Handle the case where the file does not exist
             System.out.println("Image file does not exist: " + imagePath);
         }
     }
 
     public void navigateToSignIn(){
         try {
-            // Load the FXML file for the sign-in page
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Sign_in.fxml"));
             Parent signInPage = fxmlLoader.load();
 
             Sign_in_Controller signInController = fxmlLoader.getController();
             signInController.setPrimaryStage(primaryStage);
 
-            // Set the sign-in page as the root of the existing scene
             primaryStage.getScene().setRoot(signInPage);
             primaryStage.setTitle("Sign In Page");
         } catch (IOException e) {
-            e.printStackTrace(); // Handle the exception appropriately
+            e.printStackTrace();
         }
     }
     public static void addZoomOnHover(ImageView imageView) {
-        // Set up a ScaleTransition for zoom effect
         ScaleTransition scaleIn = new ScaleTransition(Duration.millis(200), imageView);
         scaleIn.setToX(1.1);
         scaleIn.setToY(1.1);
@@ -533,25 +462,17 @@ public class AdminPageController {
         scaleOut.setToX(1.0);
         scaleOut.setToY(1.0);
 
-        // Set up PauseTransition for a short delay before zoom-out
         PauseTransition pause = new PauseTransition(Duration.millis(200));
 
-        // Set up event handlers for hover
         imageView.setOnMouseEntered(event -> {
-            // Play the scale-in transition on hover
             scaleIn.playFromStart();
         });
 
         imageView.setOnMouseExited(event -> {
-            // Stop and reset scale-in transition if running
             scaleIn.stop();
             scaleIn.setToX(1.1);
             scaleIn.setToY(1.1);
-
-            // Set play rate to reverse the scale-out transition
             scaleOut.setRate(-1);
-
-            // Set up a sequential transition for delay and scale-out
             scaleOut.setOnFinished(e -> scaleOut.setRate(1));
             pause.setOnFinished(e -> scaleOut.playFromStart());
             pause.play();

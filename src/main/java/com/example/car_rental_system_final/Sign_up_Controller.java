@@ -97,7 +97,7 @@ public class Sign_up_Controller  {
         Image image = new Image(getClass().getResource("/images/car2.png").toExternalForm());
         Car.setImage(image);
     }
-        @FXML
+    @FXML
     public void onClickSignUpButton() {
         if (NameField.getText().isEmpty() ||
                 EmailField.getText().isEmpty() ||
@@ -110,10 +110,9 @@ public class Sign_up_Controller  {
                 ConfirmPassword.getText().isEmpty()) {
             CautionLabel.setText("Every field should be filled");
 
-        }else if(!PasswordField.getText().equals(ConfirmPassword.getText())){
+        } else if (!PasswordField.getText().equals(ConfirmPassword.getText())) {
             CautionLabel.setText("Password and Confirm Password do not match.");
         } else {
-
             CautionLabel.setText("");
             User newUser = new User();
             newUser.setUser_name(NameField.getText());
@@ -125,7 +124,8 @@ public class Sign_up_Controller  {
             newUser.setUser_licenseNumber(DriverLicence.getText());
             newUser.setUser_passportNumber(Passport.getText());
             newUser.setUser_birthday(Date.valueOf(BirthdayPick.getValue()));
-            Car_Rental_System.updateUserInfo(newUser.getUser_name() + " " + newUser.getUser_surname(),newUser.getUser_id());
+
+            // Set the categories based on checkboxes
             String category = "";
             if (A.isSelected()) category += "A ";
             if (A1.isSelected()) category += "A1 ";
@@ -143,20 +143,20 @@ public class Sign_up_Controller  {
             if (T.isSelected()) category += "T ";
             newUser.setUser_licenseCategoria(category);
 
-
+            // Call createUser method
             int result = UserDB.createUser(newUser);
-            if (result > 1) {
+
+            if (result > 0) { // Ensure that the user was created successfully
                 System.out.println("User created successfully");
+                Car_Rental_System.updateUserInfo(newUser.getUser_name() + " " + newUser.getUser_surname(), newUser.getUser_id());
                 navigateToMainPage();
-                // Add code for any further actions after successful user creation
             } else {
                 System.out.println("Failed to create user");
-                // Add code for handling the failure to create a user
+                CautionLabel.setText("Failed to create user. Please try again.");
             }
-
-
         }
     }
+
 
 
 

@@ -1,19 +1,20 @@
 package com.example.car_rental_system_final;
 
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CarDB {
 
-    private static final String JDBC_URL = "jdbc:postgresql://localhost:5432/postgres";
-    private static final String JDBC_USER = "test";
-    private static final String JDBC_PASSWORD = "1234567890";
+    // Обновленные параметры подключения для MySQL
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/car_rental_system_db?useSSL=false&serverTimezone=UTC";
+    private static final String JDBC_USER = "root";  // замените на вашего пользователя MySQL
+    private static final String JDBC_PASSWORD = "mnp300921Kiri";  // замените на ваш пароль MySQL
 
     public CarDB() {
         try {
-            Class.forName("org.postgresql.Driver");
+            // Регистрация драйвера MySQL
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -51,8 +52,8 @@ public class CarDB {
 
     public void insertCar(Car car) throws SQLException {
         try (Connection connection = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD)) {
-            String insertCarSql = "INSERT INTO car(type, price_per_day, color, brand, volume, capacity) VALUES (?, ?, ?, ?, ?, ?) RETURNING id";
-            try (PreparedStatement insertCarStatement = connection.prepareStatement(insertCarSql)) {
+            String insertCarSql = "INSERT INTO car(type, price_per_day, color, brand, volume, capacity) VALUES (?, ?, ?, ?, ?, ?)"; // MySQL не поддерживает RETURNING
+            try (PreparedStatement insertCarStatement = connection.prepareStatement(insertCarSql, Statement.RETURN_GENERATED_KEYS)) {
                 insertCarStatement.setString(1, car.getType());
                 insertCarStatement.setDouble(2, car.getPricePerDay());
                 insertCarStatement.setString(3, car.getColor());
@@ -60,9 +61,11 @@ public class CarDB {
                 insertCarStatement.setInt(5, car.getVolume());
                 insertCarStatement.setInt(6, car.getCapacity());
 
-                try (ResultSet resultSet = insertCarStatement.executeQuery()) {
-                    if (resultSet.next()) {
-                        int carId = resultSet.getInt("id");
+                insertCarStatement.executeUpdate();
+
+                try (ResultSet generatedKeys = insertCarStatement.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        int carId = generatedKeys.getInt(1);
                         car.setId(carId);
                     }
                 }

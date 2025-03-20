@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 public class Car_Rental_System extends Application {
@@ -33,7 +34,8 @@ public class Car_Rental_System extends Application {
 
 
     public static void main(String[] args) throws SQLException {
-        UserDB.ConnectToDatabase();
+        Connection conn = UserDB.getConnection();
+
         launch();
     }
 

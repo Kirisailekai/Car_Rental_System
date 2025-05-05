@@ -9,6 +9,8 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.car_rental_system_final.Sign_in_Controller">
    <children>
@@ -25,5 +27,14 @@
          </font>
       </Text>
       <ImageView fx:id="Logo" fitHeight="151.0" fitWidth="166.0" layoutX="127.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="errorLabel" layoutX="14.0" layoutY="300.0" textFill="RED" />
+      
+      <Button fx:id="googleSignIn" layoutX="14.0" layoutY="330.0" mnemonicParsing="false" onAction="#onClickGoogleSignIn" prefHeight="30.0" prefWidth="200.0" text="Войти через Google">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@/images/google.png" />
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

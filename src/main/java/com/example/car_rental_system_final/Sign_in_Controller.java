@@ -1,10 +1,13 @@
 package com.example.car_rental_system_final;
 
+import com.example.car_rental_system_final.auth.JwtTokenProvider;
+import com.example.car_rental_system_final.auth.SocialAuthProvider;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -21,13 +24,11 @@ public class Sign_in_Controller {
     private ImageView Car;
     @FXML
     private Button signIn;
-
     @FXML
-    public void onClickSignInButton(){
-        navigateToMainPage();
-    }
+    private Button googleSignIn;
 
     private Stage primaryStage;
+    private String refreshToken;
 
     // Set the primary stage
     public void setPrimaryStage(Stage primaryStage) {
@@ -41,9 +42,8 @@ public class Sign_in_Controller {
     private TextField LoginField;
     @FXML
     private PasswordField PasswordField;
-
     @FXML
-    private Button SignIn;
+    private Label errorLabel;
 
     @FXML
     public void initialize(){
@@ -60,24 +60,62 @@ public class Sign_in_Controller {
         user.setUser_email(LoginField.getText());
         user.setUser_phone(LoginField.getText());
         user.setUser_password(PasswordField.getText());
+        
         boolean userExists = UserDB.isUserExist(user);
         boolean adminExists = UserDB.isAdminExist(user);
 
-        if (userExists) {
-            user = UserDB.getUserInfo(user);
-            Car_Rental_System.updateUserInfo(user.getUser_name() + " " + user.getUser_surname(),user.getUser_id());
-            System.out.println("User in database");
-            navigateToMainPage();
-        } else if (adminExists) {
-            user = UserDB.getAdminInfo(user);
-            Car_Rental_System.updateUserInfo(user.getUser_name() + " " + user.getUser_surname(),user.getUser_id());
-            System.out.println("Admin in database");
-            navigateToAdminPage();
+        if (userExists || adminExists) {
+            user = userExists ? UserDB.getUserInfo(user) : UserDB.getAdminInfo(user);
+            
+            // Генерация токенов
+            String accessToken = JwtTokenProvider.generateAccessToken(user.getUser_email(), String.valueOf(user.getUser_id()));
+            refreshToken = JwtTokenProvider.generateRefreshToken(user.getUser_email(), String.valueOf(user.getUser_id()));
+            
+            // Сохранение refresh токена
+            UserDB.storeRefreshToken(String.valueOf(user.getUser_id()), refreshToken);
+            
+            // Обновление информации о пользователе
+            Car_Rental_System.updateUserInfo(user.getUser_name() + " " + user.getUser_surname(), user.getUser_id());
+            
+            // Навигация на соответствующую страницу
+            if (adminExists) {
+                navigateToAdminPage();
+            } else {
+                navigateToMainPage();
+            }
         } else {
-            System.out.println("Failed to find user");
-            // Add code for handling the failure to create a user
+            errorLabel.setText("Неверный email или пароль");
         }
     }
+
+    @FXML
+    private void onClickGoogleSignIn() {
+        try {
+            String idToken = com.example.car_rental_system_final.auth.GoogleOAuthDesktop.getIdToken();
+            SocialAuthProvider.UserInfo userInfo = SocialAuthProvider.verifyGoogleToken(idToken);
+            if (userInfo != null) {
+                User user = UserDB.createOrUpdateSocialUser(
+                    userInfo.getId(),
+                    userInfo.getEmail(),
+                    userInfo.getName(),
+                    userInfo.getProvider()
+                );
+                if (user != null) {
+                    String accessToken = JwtTokenProvider.generateAccessToken(user.getUser_email(), String.valueOf(user.getUser_id()));
+                    refreshToken = JwtTokenProvider.generateRefreshToken(user.getUser_email(), String.valueOf(user.getUser_id()));
+                    UserDB.storeRefreshToken(String.valueOf(user.getUser_id()), refreshToken);
+                    Car_Rental_System.updateUserInfo(user.getUser_name(), user.getUser_id());
+                    navigateToMainPage();
+                }
+            } else {
+                errorLabel.setText("Ошибка входа через Google");
+            }
+        } catch (Exception e) {
+            errorLabel.setText("Ошибка Google OAuth: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     private void onClickLinkSignUp() {
         try {

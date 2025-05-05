@@ -53,6 +53,9 @@ The Car Rental System is a web-based platform designed to provide a seamless and
 - **Nur Islam:** Improved Sign In and Sign Up functionality.
 - **Tilek:** Implemented admin page functions.
 
+### April 5
+**Tilek:** Added Google OAuth(not working properly yet)
+
 ## Contributors
 - **Tilek Sakyev**
 - **Nur Islam Kubanychbekov**

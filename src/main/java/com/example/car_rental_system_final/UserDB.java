@@ -41,7 +41,7 @@ public class UserDB {
 
 
     public static boolean isUserExist(User user) {
-        String checkUserSQL = "SELECT COUNT(*) FROM \"user\" WHERE email = ? OR phone = ?";
+        String checkUserSQL = "SELECT COUNT(*) FROM `user` WHERE email = ? OR phone = ?";
         boolean userExists = false;
 
         try (Connection conn = getConnection();
@@ -62,7 +62,7 @@ public class UserDB {
     }
 
     public static boolean isAdminExist(User user) {
-        String checkAdminSQL = "SELECT COUNT(*) FROM administrator WHERE (email = ? OR phone = ?) AND administrator = 1";
+        String checkAdminSQL = "SELECT COUNT(*) FROM administrator WHERE email = ? OR phone = ?";
         boolean adminExists = false;
 
         try (Connection conn = getConnection();
@@ -83,7 +83,7 @@ public class UserDB {
     }
 
     public static User getAdminInfo(User user) {
-        String selectAdminSQL = "SELECT * FROM administrator WHERE (email = ? OR phone = ?) AND administrator = 1";
+        String selectAdminSQL = "SELECT * FROM administrator WHERE email = ? OR phone = ?";
         User admin = null;
 
         try (Connection conn = getConnection();
@@ -112,7 +112,7 @@ public class UserDB {
     }
 
     public static User getUserInfo(User user) {
-        String selectUserSQL = "SELECT * FROM \"user\" WHERE email = ? OR phone = ?";
+        String selectUserSQL = "SELECT * FROM `user` WHERE email = ? OR phone = ?";
         User foundUser = null;
 
         try (Connection conn = getConnection();
@@ -138,6 +138,73 @@ public class UserDB {
             e.printStackTrace();
         }
         return foundUser;
+    }
+
+    public static void storeRefreshToken(String userId, String refreshToken) {
+        String sql = "INSERT INTO refresh_tokens (user_id, token, created_at) VALUES (?, ?, NOW())";
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, userId);
+            pstmt.setString(2, refreshToken);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean validateRefreshToken(String userId, String refreshToken) {
+        String sql = "SELECT * FROM refresh_tokens WHERE user_id = ? AND token = ? AND created_at > DATE_SUB(NOW(), INTERVAL 7 DAY)";
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, userId);
+            pstmt.setString(2, refreshToken);
+            ResultSet rs = pstmt.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static void deleteRefreshToken(String userId, String refreshToken) {
+        String sql = "DELETE FROM refresh_tokens WHERE user_id = ? AND token = ?";
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, userId);
+            pstmt.setString(2, refreshToken);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static User createOrUpdateSocialUser(String socialId, String email, String name, String provider) {
+        String sql = "INSERT INTO users (social_id, user_email, user_name, provider) " +
+                    "VALUES (?, ?, ?, ?) " +
+                    "ON DUPLICATE KEY UPDATE " +
+                    "user_email = VALUES(user_email), " +
+                    "user_name = VALUES(user_name)";
+        
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            pstmt.setString(1, socialId);
+            pstmt.setString(2, email);
+            pstmt.setString(3, name);
+            pstmt.setString(4, provider);
+            pstmt.executeUpdate();
+
+            ResultSet rs = pstmt.getGeneratedKeys();
+            if (rs.next()) {
+                User user = new User();
+                user.setUser_id(rs.getInt(1));
+                user.setUser_email(email);
+                user.setUser_name(name);
+                return user;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

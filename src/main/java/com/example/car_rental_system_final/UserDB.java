@@ -146,7 +146,9 @@ public class UserDB {
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, userId);
-            pstmt.setString(2, refreshToken);
+            // Truncate token if it's too long (max 255 characters)
+            String truncatedToken = refreshToken.length() > 255 ? refreshToken.substring(0, 255) : refreshToken;
+            pstmt.setString(2, truncatedToken);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -209,7 +211,7 @@ public class UserDB {
     }
 
     public static User getUserByEmail(String email) {
-        String query = "SELECT * FROM users WHERE user_email = ?";
+        String query = "SELECT * FROM `user` WHERE email = ?";
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             
@@ -218,11 +220,10 @@ public class UserDB {
             
             if (rs.next()) {
                 User user = new User();
-                user.setUser_id(rs.getInt("user_id"));
-                user.setUser_email(rs.getString("user_email"));
-                user.setUser_name(rs.getString("user_name"));
-                user.setUser_password(rs.getString("user_password"));
-                user.setUser_role(rs.getString("user_role"));
+                user.setUser_id(rs.getInt("id"));
+                user.setUser_email(rs.getString("email"));
+                user.setUser_name(rs.getString("name"));
+                user.setUser_password(rs.getString("password"));
                 return user;
             }
         } catch (SQLException e) {
@@ -232,14 +233,13 @@ public class UserDB {
     }
 
     public static void addUser(User user) {
-        String query = "INSERT INTO users (user_email, user_name, user_password, user_role) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO `user` (name, email, password) VALUES (?, ?, ?)";
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             
-            pstmt.setString(1, user.getUser_email());
-            pstmt.setString(2, user.getUser_name());
+            pstmt.setString(1, user.getUser_name());
+            pstmt.setString(2, user.getUser_email());
             pstmt.setString(3, user.getUser_password());
-            pstmt.setString(4, user.getUser_role());
             
             pstmt.executeUpdate();
             

@@ -8,18 +8,28 @@ CREATE TABLE administrator (
     password VARCHAR,
     CONSTRAINT administrator_pk PRIMARY KEY (id)
 );
-CREATE table "user" (
-	id int4 NOT NULL GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE),
-	"name" varchar,
-	surname varchar,
-	email varchar,
-	phone varchar,
-	address varchar,
-	"password" varchar,
-	birthday date NULL,
-	CONSTRAINT user_pk PRIMARY KEY (id)
+
+CREATE TABLE "user" (
+    id int4 NOT NULL GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE),
+    "name" varchar,
+    surname varchar,
+    email varchar,
+    phone varchar,
+    address varchar,
+    "password" varchar,
+    birthday date NULL,
+    social_id VARCHAR(255) UNIQUE,
+    provider VARCHAR(50),
+    CONSTRAINT user_pk PRIMARY KEY (id)
 );
 
+CREATE TABLE IF NOT EXISTS `refresh_tokens` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `user_id` INT NOT NULL,
+    `token` VARCHAR(255) NOT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON DELETE CASCADE
+);
 
 CREATE table car (
 	id int4 NOT NULL GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE),

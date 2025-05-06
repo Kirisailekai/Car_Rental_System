@@ -97,11 +97,8 @@ public class Sign_in_Controller {
     @FXML
     private void onClickGoogleSignIn(ActionEvent event) {
         try {
-            // Получаем тестовый токен
-            String idToken = GoogleOAuthDesktop.getIdToken();
-            
-            // Проверяем токен и получаем информацию о пользователе
-            UserInfo userInfo = SocialAuthProvider.verifyGoogleToken(idToken);
+            // Получаем информацию о пользователе через Google OAuth
+            UserInfo userInfo = SocialAuthProvider.verifyGoogleToken(null);
             
             if (userInfo != null) {
                 // Успешная аутентификация

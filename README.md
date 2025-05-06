@@ -60,3 +60,29 @@ The Car Rental System is a web-based platform designed to provide a seamless and
 - **Tilek Sakyev**
 - **Nur Islam Kubanychbekov**
 
+## Настройка Google OAuth
+
+1. Создайте проект в [Google Cloud Console](https://console.cloud.google.com/)
+2. Включите Google OAuth API
+3. Создайте учетные данные OAuth 2.0
+4. Скопируйте файл `client_secret.example.json` в `client_secret.json`
+5. Замените `YOUR_CLIENT_ID` и `YOUR_CLIENT_SECRET` на ваши реальные данные
+
+## Запуск приложения
+
+```bash
+mvn clean javafx:run
+```
+
+## Тестовый вход через Google
+
+Для тестирования используется тестовый токен с данными:
+- Email: test@test.com
+- Name: Test User
+
+## Безопасность
+
+- Не храните секретные данные в репозитории
+- Используйте `.gitignore` для исключения конфиденциальных файлов
+- Регулярно обновляйте зависимости
+

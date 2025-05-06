@@ -1,10 +1,11 @@
 package com.example.car_rental_system_final;
 
+import com.example.car_rental_system_final.models.User;
 import java.sql.*;
 
 public class UserDB {
     // Обновленные параметры подключения для MySQL
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/car_rental_system_db?useSSL=false&serverTimezone=UTC";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/car_rental_system_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String JDBC_USER = "root";  // замените на вашего пользователя MySQL
     private static final String JDBC_PASSWORD = "mnp300921Kiri";  // замените на ваш пароль MySQL
 
@@ -205,6 +206,50 @@ public class UserDB {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static User getUserByEmail(String email) {
+        String query = "SELECT * FROM users WHERE user_email = ?";
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            
+            pstmt.setString(1, email);
+            ResultSet rs = pstmt.executeQuery();
+            
+            if (rs.next()) {
+                User user = new User();
+                user.setUser_id(rs.getInt("user_id"));
+                user.setUser_email(rs.getString("user_email"));
+                user.setUser_name(rs.getString("user_name"));
+                user.setUser_password(rs.getString("user_password"));
+                user.setUser_role(rs.getString("user_role"));
+                return user;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void addUser(User user) {
+        String query = "INSERT INTO users (user_email, user_name, user_password, user_role) VALUES (?, ?, ?, ?)";
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+            
+            pstmt.setString(1, user.getUser_email());
+            pstmt.setString(2, user.getUser_name());
+            pstmt.setString(3, user.getUser_password());
+            pstmt.setString(4, user.getUser_role());
+            
+            pstmt.executeUpdate();
+            
+            ResultSet rs = pstmt.getGeneratedKeys();
+            if (rs.next()) {
+                user.setUser_id(rs.getInt(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

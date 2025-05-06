@@ -1,10 +1,14 @@
 package com.example.car_rental_system_final;
 
+import com.example.car_rental_system_final.auth.GoogleOAuthDesktop;
 import com.example.car_rental_system_final.auth.JwtTokenProvider;
 import com.example.car_rental_system_final.auth.SocialAuthProvider;
+import com.example.car_rental_system_final.models.User;
+import com.example.car_rental_system_final.models.UserInfo;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -13,6 +17,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
 
 import java.io.IOException;
 
@@ -75,7 +81,7 @@ public class Sign_in_Controller {
             UserDB.storeRefreshToken(String.valueOf(user.getUser_id()), refreshToken);
             
             // Обновление информации о пользователе
-            Car_Rental_System.updateUserInfo(user.getUser_name() + " " + user.getUser_surname(), user.getUser_id());
+            Car_Rental_System.updateUserInfo(user.getUser_name(), user.getUser_id());
             
             // Навигация на соответствующую страницу
             if (adminExists) {
@@ -89,30 +95,39 @@ public class Sign_in_Controller {
     }
 
     @FXML
-    private void onClickGoogleSignIn() {
+    private void onClickGoogleSignIn(ActionEvent event) {
         try {
-            String idToken = com.example.car_rental_system_final.auth.GoogleOAuthDesktop.getIdToken();
-            SocialAuthProvider.UserInfo userInfo = SocialAuthProvider.verifyGoogleToken(idToken);
+            // Получаем тестовый токен
+            String idToken = GoogleOAuthDesktop.getIdToken();
+            
+            // Проверяем токен и получаем информацию о пользователе
+            UserInfo userInfo = SocialAuthProvider.verifyGoogleToken(idToken);
+            
             if (userInfo != null) {
-                User user = UserDB.createOrUpdateSocialUser(
-                    userInfo.getId(),
-                    userInfo.getEmail(),
-                    userInfo.getName(),
-                    userInfo.getProvider()
-                );
-                if (user != null) {
-                    String accessToken = JwtTokenProvider.generateAccessToken(user.getUser_email(), String.valueOf(user.getUser_id()));
-                    refreshToken = JwtTokenProvider.generateRefreshToken(user.getUser_email(), String.valueOf(user.getUser_id()));
-                    UserDB.storeRefreshToken(String.valueOf(user.getUser_id()), refreshToken);
-                    Car_Rental_System.updateUserInfo(user.getUser_name(), user.getUser_id());
-                    navigateToMainPage();
-                }
+                // Успешная аутентификация
+                System.out.println("Успешный вход через Google: " + userInfo.getEmail());
+                
+                // Генерация токенов
+                String accessToken = JwtTokenProvider.generateAccessToken(userInfo.getEmail(), userInfo.getId());
+                refreshToken = JwtTokenProvider.generateRefreshToken(userInfo.getEmail(), userInfo.getId());
+                
+                // Сохранение refresh токена
+                UserDB.storeRefreshToken(userInfo.getId(), refreshToken);
+                
+                // Обновление информации о пользователе
+                Car_Rental_System.updateUserInfo(userInfo.getName(), Integer.parseInt(userInfo.getId()));
+                
+                // Переходим на главную страницу
+                navigateToMainPage();
             } else {
-                errorLabel.setText("Ошибка входа через Google");
+                // Ошибка аутентификации
+                errorLabel.setText("Ошибка аутентификации через Google");
+                System.out.println("Ошибка аутентификации через Google");
             }
         } catch (Exception e) {
-            errorLabel.setText("Ошибка Google OAuth: " + e.getMessage());
             e.printStackTrace();
+            errorLabel.setText("Ошибка при входе через Google: " + e.getMessage());
+            System.out.println("Ошибка при входе через Google: " + e.getMessage());
         }
     }
 

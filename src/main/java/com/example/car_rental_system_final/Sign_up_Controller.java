@@ -1,21 +1,31 @@
 package com.example.car_rental_system_final;
 
+import com.example.car_rental_system_final.models.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.*;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import java.sql.SQLException;
 import java.io.IOException;
 import java.sql.Date;
 
-
-public class Sign_up_Controller  {
+public class Sign_up_Controller {
     @FXML
     private ImageView Car;
 
@@ -94,36 +104,22 @@ public class Sign_up_Controller  {
 
     @FXML
     public void initialize() {
-        Image image = new Image(getClass().getResource("/images/car2.png").toExternalForm());
+        Image image = new Image(getClass().getResource("/images/car.png").toExternalForm());
         Car.setImage(image);
     }
     @FXML
     public void onClickSignUpButton() {
-        if (NameField.getText().isEmpty() ||
-                EmailField.getText().isEmpty() ||
-                PhoneField.getText().isEmpty() ||
-                AddressField.getText().isEmpty() ||
-                (BirthdayPick.getValue() == null) ||
-                PasswordField.getText().isEmpty() ||
-                Passport.getText().isEmpty() ||
-                DriverLicence.getText().isEmpty() ||
-                ConfirmPassword.getText().isEmpty()) {
-            CautionLabel.setText("Every field should be filled");
-
-        } else if (!PasswordField.getText().equals(ConfirmPassword.getText())) {
-            CautionLabel.setText("Password and Confirm Password do not match.");
-        } else {
-            CautionLabel.setText("");
-            User newUser = new User();
-            newUser.setUser_name(NameField.getText());
-            newUser.setUser_surname(SurnameField.getText());
-            newUser.setUser_email(EmailField.getText());
-            newUser.setUser_phone(PhoneField.getText());
-            newUser.setUser_address(AddressField.getText());
-            newUser.setUser_password(PasswordField.getText());
-            newUser.setUser_licenseNumber(DriverLicence.getText());
-            newUser.setUser_passportNumber(Passport.getText());
-            newUser.setUser_birthday(Date.valueOf(BirthdayPick.getValue()));
+        if (validateInput()) {
+            User user = new User();
+            user.setUser_name(NameField.getText());
+            user.setUser_surname(SurnameField.getText());
+            user.setUser_email(EmailField.getText());
+            user.setUser_phone(PhoneField.getText());
+            user.setUser_address(AddressField.getText());
+            user.setUser_password(PasswordField.getText());
+            user.setUser_licenseNumber(DriverLicence.getText());
+            user.setUser_passportNumber(Passport.getText());
+            user.setUser_birthday(Date.valueOf(BirthdayPick.getValue()));
 
             // Set the categories based on checkboxes
             String category = "";
@@ -141,24 +137,17 @@ public class Sign_up_Controller  {
             if (D1.isSelected()) category += "D1 ";
             if (D1E.isSelected()) category += "D1E ";
             if (T.isSelected()) category += "T ";
-            newUser.setUser_licenseCategoria(category);
+            user.setUser_licenseCategoria(category);
 
-            // Call createUser method
-            int result = UserDB.createUser(newUser);
-
-            if (result > 0) { // Ensure that the user was created successfully
-                System.out.println("User created successfully");
-                Car_Rental_System.updateUserInfo(newUser.getUser_name() + " " + newUser.getUser_surname(), newUser.getUser_id());
-                navigateToMainPage();
+            int userId = UserDB.createUser(user);
+            if (userId != -1) {
+                // Успешная регистрация
+                navigateToSignIn();
             } else {
-                System.out.println("Failed to create user");
-                CautionLabel.setText("Failed to create user. Please try again.");
+                CautionLabel.setText("Ошибка при регистрации");
             }
         }
     }
-
-
-
 
     @FXML
     public void onClickCirclePage1() {
@@ -215,4 +204,39 @@ public class Sign_up_Controller  {
         }
     }
 
+    private void navigateToSignIn() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Sign_in.fxml"));
+            Parent signInPage = fxmlLoader.load();
+
+            Sign_in_Controller signInController = fxmlLoader.getController();
+            signInController.setPrimaryStage(primaryStage);
+
+            primaryStage.getScene().setRoot(signInPage);
+            primaryStage.setTitle("Sign in page");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private boolean validateInput() {
+        if (NameField.getText().isEmpty() ||
+                EmailField.getText().isEmpty() ||
+                PhoneField.getText().isEmpty() ||
+                AddressField.getText().isEmpty() ||
+                (BirthdayPick.getValue() == null) ||
+                PasswordField.getText().isEmpty() ||
+                Passport.getText().isEmpty() ||
+                DriverLicence.getText().isEmpty() ||
+                ConfirmPassword.getText().isEmpty()) {
+            CautionLabel.setText("Every field should be filled");
+            return false;
+        } else if (!PasswordField.getText().equals(ConfirmPassword.getText())) {
+            CautionLabel.setText("Password and Confirm Password do not match.");
+            return false;
+        } else {
+            CautionLabel.setText("");
+            return true;
+        }
+    }
 }
